@@ -76021,8 +76021,9 @@ textarea.form-control {
     }
 }
 
-
-.px-sm-0 .row{
-    background: url(../images/main-demo.jpg);
+#home {
+    background: url("../images/main-demo.png") no-repeat;
+    background-position: center;
 }
+
 /*# sourceMappingURL=style.css.map */
