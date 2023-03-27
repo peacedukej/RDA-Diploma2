@@ -16076,6 +16076,13 @@ ul.inbox-pagination li {
     z-index: 1;
 }
 
+.profile-img-s {
+    display: flex;
+    max-width: 120px;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    }
+
 .profile-cover__img .profile-img-1>img {
     max-width: 120px;
     border: 5px solid #ffffff;
