@@ -13,3 +13,7 @@ def login_page(request):
 
 def register_page(request):
     return render(request, 'rda_frontend/register.html')
+
+
+def account_page(request):
+    return render(request, 'rda_frontend/account.html')
