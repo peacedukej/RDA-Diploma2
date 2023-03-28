@@ -16083,6 +16083,12 @@ ul.inbox-pagination li {
     border-radius: 50%;
     }
 
+.profile-img-avatar {
+    max-width: 220px;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+}
+
 .profile-cover__img .profile-img-1>img {
     max-width: 120px;
     border: 5px solid #ffffff;
@@ -75431,6 +75437,11 @@ textarea {
 
 .text-center {
     text-align: center !important;
+}
+
+.add-analysis-btn {
+    display: block;
+    width: fit-content;
 }
 
 @media (min-width: 576px) {

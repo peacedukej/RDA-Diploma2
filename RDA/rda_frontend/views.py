@@ -17,3 +17,15 @@ def register_page(request):
 
 def account_page(request):
     return render(request, 'rda_frontend/account.html')
+
+
+def edit_profile(request):
+    return render(request, 'rda_frontend/edit-profile.html')
+
+
+def documents_page(request):
+    return render(request, 'rda_frontend/documents.html')
+
+
+def add_analysis_page(request):
+    return render(request, 'rda_frontend/add-analysis.html')
