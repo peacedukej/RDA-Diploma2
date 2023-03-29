@@ -27,5 +27,9 @@ def documents_page(request):
     return render(request, 'rda_frontend/documents.html')
 
 
+def analysis_page(request):
+    return render(request, 'rda_frontend/analysis.html')
+
+
 def add_analysis_page(request):
     return render(request, 'rda_frontend/add-analysis.html')
