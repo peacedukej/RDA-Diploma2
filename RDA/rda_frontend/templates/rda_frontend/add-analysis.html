@@ -682,11 +682,14 @@
                                         <p>Внесите информацию о проведенном анализе</p>
                                         <div class="form-group">
                                             <label class="form-label">Вид анализа или исследования</label>
-                                            <select name="country" class="form-control form-select" data-bs-placeholder="...">
-                                                    <option value="br">Общий анализ крови</option>
-                                                    <option value="cz">ВИЧ, СПИД</option>
-                                                    <option value="de">Germany</option>
-                                                    <option value="pl" selected>...</option>
+                                            <select name="country" class="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onchange="addAnalysisForm()">
+                                                    <option value="pass" selected>...</option>
+                                                    <option value="a1">Общий анализ крови</option>
+                                                    <option value="a2">Общий анализ мочи</option>
+                                                    <option value="a3">Анализ крови на С-реактивный белок</option>
+                                                    <option value="a4">Ревматоидный фактор</option>
+                                                    <option value="a5">Антитела к циклическому цитруллинированному пептиду</option>
+
                                             </select>
 
                                             <label class="form-label">Дата сдачи анализа или прохождения исследования</label>
@@ -785,13 +788,38 @@
 
                                             <label class="form-label">Медицинское учреждение</label>
                                             <select name="country" class="form-control form-select" data-bs-placeholder="...">
-                                                    <option value="br">Общий анализ крови</option>
-                                                    <option value="cz">ВИЧ, СПИД</option>
-                                                    <option value="de">Germany</option>
-                                                    <option value="pl" selected>...</option>
+                                                    <option value="m1">"Invitro"</option>
+                                                    <option value="m2">ГБУЗ</option>
+                                                    <option value="m3">Гематест</option>
+                                                    <option value="pass" selected>...</option>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="card-body selected-form" id="pass-selected" style="display: none">
+                                        Не выбран тип анализа!
+                                    </div>
+
+                                    <div class="card-body selected-form" id="a1-selected" style="display: none">
+                                        hfsthfsghjsfg
+                                    </div>
+
+                                    <div class="card-body selected-form" id="a2-selected" style="display: none">
+                                        Выбран "Общий анализ мочи"
+                                    </div>
+
+                                    <div class="card-body selected-form" id="a3-selected" style="display: none">
+                                        Выбран "Анализ крови на С-реактивный белок"
+                                    </div>
+
+                                    <div class="card-body selected-form" id="a4-selected" style="display: none">
+                                        Выбран "Ревматоидный фактор"
+                                    </div>
+
+                                    <div class="card-body selected-form" id="a5-selected" style="display: none">
+                                        Выбран "Антитела к циклическому цитруллинированному пептиду"
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -1359,6 +1387,8 @@
 
     <!-- CUSTOM JS -->
     <script src="../static/assets/js/custom.js"></script>
+
+    <script src="../static/assets/js/analys-type-form.js"></script>
 
 </body>
 
