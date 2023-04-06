@@ -76044,4 +76044,24 @@ textarea.form-control {
     background-position: center;
 }
 
+.add-analysis-row {
+    vertical-align: center;
+    margin-bottom: 10 px;
+}
+
+.add-analysis-row .col {
+margin-bottom: 20px;
+
+}
+
+.add-analysis-row .col-lg-4 {
+display: flex;
+    text-align: left;
+    align-items: center;
+    }
+
+.add-analysis-results-name {
+    margin-bottom: 25px;
+    }
+
 /*# sourceMappingURL=style.css.map */
