@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 
+from .forms import User, RegisterForm
 
 # Create your views here.
 
@@ -12,7 +14,16 @@ def login_page(request):
 
 
 def register_page(request):
-    return render(request, 'rda_frontend/register.html')
+    # form = CreateUserForm()
+    form = RegisterForm()
+    if request.method == 'POST':
+        # form = CreateUserForm(request.POST)
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'rda_frontend/register.html', context)
 
 
 def account_page(request):

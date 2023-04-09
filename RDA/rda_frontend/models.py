@@ -6,26 +6,27 @@ import psycopg2
 
 class User(models.Model):
     user_id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=30, null=True)
+    first_name = models.CharField(max_length=30, null=True)
     surname = models.CharField(max_length=30, null=True)
     patronymic = models.CharField(max_length=30, null=True)
-
-    # class Meta:
-    #     constraints = [models.PrimaryKeyConstraint(fields=['user_id'])]
-
-
-class UserInfo(models.Model):
-    user_id = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        primary_key=True
-    )
     passport = models.CharField(max_length=20, null=True)
     phone = models.CharField(max_length=20, null=True)
     email = models.CharField(max_length=50, null=True)
     birthday = models.DateTimeField(null=True)
     gender = models.CharField(null=True, max_length=10)
     address = models.CharField(max_length=50, null=True)
+    password = models.CharField(max_length=30, null=True)
+    # class Meta:
+    #     constraints = [models.PrimaryKeyConstraint(fields=['user_id'])]
+
+
+# class UserInfo(models.Model):
+#     user_id = models.ForeignKey(
+#         User,
+#         on_delete=models.CASCADE,
+#         primary_key=True
+#     )
+
 
 
 class Doctor(models.Model):
