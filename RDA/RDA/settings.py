@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'Accounts.apps.AccountsConfig', # new
     'rda_frontend',
 ]
+
+AUTH_USER_MODEL = 'Accounts.Users' # new
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,3 +130,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']

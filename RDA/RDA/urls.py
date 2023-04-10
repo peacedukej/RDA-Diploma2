@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from rda_frontend.views import landing_page, login_page, register_page, account_page, edit_profile, documents_page, analysis_page, add_analysis_page
-
+from rda_frontend.views import landing_page,  account_page, edit_profile, documents_page, analysis_page, add_analysis_page
+from Accounts.views import login_page, register_page
+#login_page, register_page,
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', landing_page),

@@ -137,6 +137,9 @@
                                            class="btn ripple btn-min w-sm btn-primary me-2 my-auto d-lg-none d-xl-block d-block"
                                             target="_blank">Войти
                                         </a>
+                                        {% if request.user.is_authenticated %}
+                                        <p>{{request.user}}</p>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
