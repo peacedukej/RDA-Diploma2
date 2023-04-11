@@ -66,13 +66,15 @@
                             <span class="login100-form-title">
 									Регистрация
 								</span>
-<!--                            <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">-->
-<!--                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">-->
-<!--                                    <i class="mdi mdi-account" aria-hidden="true"></i>-->
-<!--                                </a>-->
-<!--                                {{form.username}}-->
-<!--&lt;!&ndash;                                <input class="input100 border-start-0 ms-0 form-control" type="text" placeholder="User name">&ndash;&gt;-->
-<!--                            </div>-->
+
+
+                            <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
+                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                    <i class="mdi mdi-account" aria-hidden="true"></i>
+                                </a>
+                                {{form.username}}
+<!--                                <input class="input100 border-start-0 ms-0 form-control" type="text" placeholder="User name">-->
+                            </div>
 
 
 
@@ -88,7 +90,15 @@
                                     <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                         <i class="zmdi zmdi-eye" aria-hidden="true"></i>
                                     </a>
-                                    {{form.password}}
+                                    {{form.password1}}
+<!--                                    <input class="input100 border-start-0 ms-0 form-control" id="get_pass" type="password" placeholder="Password">-->
+                                </div>
+
+                                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                    <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                        <i class="zmdi zmdi-eye" aria-hidden="true"></i>
+                                    </a>
+                                    {{form.password2}}
 <!--                                    <input class="input100 border-start-0 ms-0 form-control" id="get_pass" type="password" placeholder="Password">-->
                                 </div>
 

@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 import psycopg2
 
 # Create your models here.
 
 
-class User(models.Model):
-    user_id = models.IntegerField(primary_key=True)
+class Patient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    #user_id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=30, null=True)
     surname = models.CharField(max_length=30, null=True)
     patronymic = models.CharField(max_length=30, null=True)
@@ -15,7 +17,7 @@ class User(models.Model):
     birthday = models.DateTimeField(null=True)
     gender = models.CharField(null=True, max_length=10)
     address = models.CharField(max_length=50, null=True)
-    password = models.CharField(max_length=30, null=True)
+    #password = models.CharField(max_length=30, null=True)
     # class Meta:
     #     constraints = [models.PrimaryKeyConstraint(fields=['user_id'])]
 
