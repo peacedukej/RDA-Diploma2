@@ -59,7 +59,10 @@
 
                 <div class="container-login100">
                     <div class="wrap-login100 p-6">
-                        <form class="login100-form validate-form">
+
+
+                        <form method="POST" action="" class="login100-form validate-form">
+                           {% csrf_token %}
                             <span class="login100-form-title pb-5">
                                 Login
                             </span>
@@ -82,7 +85,8 @@
                                                     <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                         <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                                     </a>
-                                                    <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Email">
+                                                    {{form.username}}
+<!--                                                    <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Email">-->
                                                 </div>
 
 
@@ -90,7 +94,8 @@
                                                     <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                         <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                                     </a>
-                                                    <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Password">
+                                                    {{form.password}}
+<!--                                                    <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Password">-->
                                                 </div>
                                             </form>
 
@@ -99,10 +104,15 @@
                                                 <p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
                                             </div>
                                             <div class="container-login100-form-btn">
-                                                <a href="index.html" class="login100-form-btn btn-primary">
-                                                        Login
-                                                </a>
+                                                <input type="submit"  class="login100-form-btn btn-primary" value="Войти">
+<!--                                                <a href="index.html" class="login100-form-btn btn-primary">-->
+<!--                                                        Login-->
+<!--                                                </a>-->
                                             </div>
+
+                                            {% for message in messages %}
+                                            <p class="mb-0">{{message}}</p>
+                                            {% endfor %}
                                             <div class="text-center pt-3">
                                                 <p class="text-dark mb-0">Not a member?<a href="../register" class="text-primary ms-1">Sign UP</a></p>
                                             </div>

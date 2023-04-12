@@ -3,13 +3,15 @@ from django.contrib.auth.models import User
 import psycopg2
 
 # Create your models here.
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Patient(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    #user_id = models.IntegerField(primary_key=True)
+    # user_id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=30, null=True)
-    surname = models.CharField(max_length=30, null=True)
+    last_name = models.CharField(max_length=30, null=True)
     patronymic = models.CharField(max_length=30, null=True)
     passport = models.CharField(max_length=20, null=True)
     phone = models.CharField(max_length=20, null=True)
@@ -17,7 +19,9 @@ class Patient(models.Model):
     birthday = models.DateTimeField(null=True)
     gender = models.CharField(null=True, max_length=10)
     address = models.CharField(max_length=50, null=True)
-    #password = models.CharField(max_length=30, null=True)
+    access_group = models.CharField(max_length=30, null=True, default='New')
+    photo = models.URLField(null=True)
+    # password = models.CharField(max_length=30, null=True)
     # class Meta:
     #     constraints = [models.PrimaryKeyConstraint(fields=['user_id'])]
 
@@ -28,7 +32,6 @@ class Patient(models.Model):
 #         on_delete=models.CASCADE,
 #         primary_key=True
 #     )
-
 
 
 class Doctor(models.Model):
@@ -174,12 +177,13 @@ class Analysis(models.Model):
     #     ]
 
 
+@receiver(post_save, sender=User)
+def update_profile_signal(sender, instance, created, **kwargs):
+    if created:
+        Patient.objects.create(user=instance, email=instance.email)
 
-
-
-
-
-
-
-
-
+        # print(str(Patient.email))
+        # print(User.objects.get('email'))
+        # email = User.objects.get('email')
+        # p = Patient(email=email)
+        # # p.save()

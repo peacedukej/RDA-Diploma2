@@ -121,14 +121,27 @@
                                                     class="side-menu__label">Контакты</span></a>
                                         </li>
                                     </ul>
+
+
+
+<!--                                    {% if request.user.is_authenticated() %}-->
+<!--                                    <p> {{request.user}} </p>-->
+
+<!--                                    {% endif %}-->
+
+
                                     <div class="header-nav-right d-none d-lg-flex">
                                         <a href="register.html"
                                             class="btn ripple btn-min w-sm btn-outline-primary me-2 my-auto d-lg-none d-xl-block d-block"
-                                            target="_blank">Регистрация
+                                            target="_blank">Регтрация
                                         </a>
                                         <a href="login.html" class="btn ripple btn-min w-sm btn-primary me-2 my-auto d-lg-none d-xl-block d-block"
                                             target="_blank">Войти
                                         </a>
+                                         <a href="login.html" class="btn ripple btn-min w-sm btn-primary me-2 my-auto d-lg-none d-xl-block d-block"
+                                            target="_blank">Выйти
+                                    </a>
+
                                     </div>
                                 </div>
                             </div>

@@ -1,10 +1,13 @@
 from django.contrib.auth import password_validation
+from django.db.models.signals import post_save
 from django.forms import ModelForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 from django.contrib.auth.models import User
 
-# from .models import User
+from .models import Patient
+
+
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label='Логин', help_text='Обязательное поле',
@@ -26,6 +29,36 @@ class RegisterForm(UserCreationForm):
         ]
 
 
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label='Ваш логин', widget=forms.TextInput(attrs={'class': 'form-control', 'for':'login-username'}))
+    password = forms.CharField(label='Пароль', #help_text=password_validation.password_validators_help_text_html(),
+                               widget=forms.PasswordInput(attrs={'class': 'form-control', 'for':'login-password'}))
+
+
+class NewUserProfile(ModelForm):
+    first_name = forms.CharField(help_text='Обязательное поле',
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Иван'}))
+    last_name = forms.CharField(help_text='Обязательное поле',
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Иванов'}))
+    patronymic = forms.CharField(help_text='При отсутствии отчества поле можно оставить пустым',
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Иван'}))
+    phone = forms.CharField(help_text='Обязательное поле',
+                               widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+79991234567'}))
+    #birthday = forms.DateTimeField(help_text='Обязательное поле',
+    #                           widget=forms.TextInput(attrs={'class': 'form-control'}))
+    #photo = forms.URLField
+
+    class Meta:
+        model = Patient
+        fields = [
+            'first_name',
+            'last_name',
+            'patronymic',
+            'phone',
+            #'birthday',
+            #'photo',
+            #'access_group'
+        ]
 # class RegisterForm(ModelForm):
 #     class Meta:
 #         model = User
