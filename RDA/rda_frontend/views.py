@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
-from .forms import RegisterForm, LoginForm, NewUserProfile
+from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword
 from .models import Patient
 
 
@@ -67,16 +67,33 @@ def account_page(request):
             form.save()
             Patient.objects.update(access_group='Verified')
 
-        messages.success(request, 'Данные успешно сохранены')
+            messages.success(request, 'Данные успешно сохранены')
         # return redirect('../login')
 
     context = {'form': form}
     return render(request, 'rda_frontend/account.html', context)
 
+
+
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')
 def edit_profile(request):
-    return render(request, 'rda_frontend/edit-profile.html')
+    form = EditPassword
+
+    if request.method == 'POST':
+        form = EditPassword(request.user, request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Пароль успешно изменен.')
+            return redirect('../account')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = EditPassword(request.user)
+    context = {'form': form}
+    return render(request, 'rda_frontend/edit-profile.html', context)
 
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')

@@ -371,6 +371,10 @@
                         <div class="row">
                             <div class="col-xl-4">
                                 <div class="card">
+
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+
                                     <div class="card-header">
                                         <div class="card-title">Изменить пароль</div>
                                     </div>
@@ -381,44 +385,55 @@
                                             </div>
                                             <div class="main-chat-msg-name">
                                                 <a href="profile.html">
-                                                    <h5 class="mb-1 text-dark fw-semibold">Иванов Иван Иванович</h5>
+                                                    <h5 class="mb-1 text-dark fw-semibold">{{ user.patient.last_name }} {{ user.patient.first_name }} {{ user.patient.patronymic }}</h5>
                                                 </a>
-                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">Водитель</p>
+                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">{{user.patient.email}}</p>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Текущий пароль</label>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 form-control" type="password" placeholder="Текущий пароль" autocomplete="current-password">
+
+                                            <div class="form-group">
+                                                <label class="form-label">Текущий пароль</label>
+                                                <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                                    <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                        <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                                    </a>
+                                                    {{form.old_password}}
+<!--                                                    <input class="input100 form-control" type="password" placeholder="Текущий пароль" autocomplete="current-password">-->
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Новый пароль</label>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle1">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 form-control" type="password" placeholder="Новый пароль" autocomplete="new-password">
+
+                                            <div class="form-group">
+                                                <label class="form-label">Новый пароль</label>
+                                                <div class="wrap-input100 validate-input input-group" id="Password-toggle1">
+                                                    <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                        <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                                    </a>
+                                                    {{form.new_password1}}
+<!--                                                    <input class="input100 form-control" type="password" placeholder="Новый пароль" autocomplete="new-password">-->
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">И еще раз новый пароль</label>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle2">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 form-control" type="password" placeholder="И еще раз" autocomplete="new-password">
+                                            <div class="form-group">
+                                                <label class="form-label">И еще раз новый пароль</label>
+                                                <div class="wrap-input100 validate-input input-group" id="Password-toggle2">
+                                                    <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                        <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                                    </a>
+                                                    {{form.new_password2}}
+<!--                                                    <input class="input100 form-control" type="password" placeholder="И еще раз" autocomplete="new-password">-->
+                                                </div>
                                             </div>
-                                        </div>
+
+
                                     </div>
                                     <div class="card-footer text-end">
-                                        <a href="javascript:void(0)" class="btn btn-primary">Изменить</a>
+                                        <input type="submit"  class="btn btn-primary" value="Изменить">
+<!--                                        <a href="javascript:void(0)" class="btn btn-primary">Изменить</a>-->
                                         <a href="javascript:void(0)" class="btn btn-danger">Отмена</a>
                                     </div>
+                                    </form>
                                 </div>
+
+
                                 <div class="card panel-theme">
                                     <div class="card-header">
                                         <div class="float-start">
