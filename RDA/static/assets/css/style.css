@@ -11957,7 +11957,7 @@ a.tag-addon:hover {
     .col-lg-1 {
         -ms-flex: 0 0 8.33333333%;
         flex: 0 0 8.33333333%;
-        max-width: 8.33333333%;
+        /*max-width: 8.33333333%;*/
     }
 
     .col-lg-2 {
@@ -11987,7 +11987,7 @@ a.tag-addon:hover {
     .col-lg-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
-        max-width: 50%;
+        /*max-width: 50%;*/
     }
 
     .col-lg-7 {
@@ -16069,9 +16069,8 @@ ul.inbox-pagination li {
     display: flex;
     border-radius: 11px;
     color: #fff;
-    position: absolute;
-    left: 50px;
-    top: 183px;
+    position: relative;
+
     text-align: center;
     z-index: 1;
 }
@@ -16089,12 +16088,15 @@ ul.inbox-pagination li {
     border-radius: 50%;
 }
 
+.profile-img-1 {
+display: inline-block;
+}
+
 .profile-cover__img .profile-img-1>img {
     max-width: 120px;
     border: 5px solid #ffffff;
     border-radius: 50%;
-    margin-top: 55px;
-    margin-left: -9px;
+
 }
 
 .profile-cover__img .profile-img-content {

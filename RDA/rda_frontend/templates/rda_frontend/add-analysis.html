@@ -675,24 +675,29 @@
 
                         <!-- ROW-1 OPEN -->
                         <!-- Row -->
+                        <form method="POST" action="">
+                            {% csrf_token %}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <p>Введите название документа</p>
-                                        <input class="form-control add-analysis-results-name" placeholder="Название документа, который будет отображаться в введенных анализах">
-                                        <p>Внесите информацию о проведенном анализе</p>
+                                        <h5 class="h5 mb-2"><b>Введите название документа</b></h5>
+                                        {{ form.analysis_user_name }}
+<!--                                        <input class="form-control add-analysis-results-name" placeholder="Название документа, который будет отображаться в введенных анализах">-->
+                                        <br>
+                                        <h5 class="h5 mb-2"><b>Внесите информацию о проведенном анализе</b></h5>
                                         <div class="form-group">
                                             <label class="form-label" onload="addAnalysisForm()">Вид анализа или исследования</label>
-                                            <select name="country" class="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onclick= "addAnalysisForm()" onchange="addAnalysisForm()">
-                                                    <option value="pass" selected>...</option>
-                                                    <option value="a1">Общий анализ крови</option>
-                                                    <option value="a2">Общий анализ мочи</option>
-                                                    <option value="a3">Анализ крови на С-реактивный белок</option>
-                                                    <option value="a4">Ревматоидный фактор</option>
-                                                    <option value="a5">Антитела к циклическому цитруллинированному пептиду</option>
+                                            {{ form.analysis_type }}
+<!--                                            <select name="country" class="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onclick= "addAnalysisForm()" onchange="addAnalysisForm()">-->
+<!--                                                    <option value="pass" selected>...</option>-->
+<!--                                                    <option value="a1">Общий анализ крови</option>-->
+<!--                                                    <option value="a2">Общий анализ мочи</option>-->
+<!--                                                    <option value="a3">Анализ крови на С-реактивный белок</option>-->
+<!--                                                    <option value="a4">Ревматоидный фактор</option>-->
+<!--                                                    <option value="a5">Антитела к циклическому цитруллинированному пептиду</option>-->
 
-                                            </select>
+<!--                                            </select>-->
 
                                             <label class="form-label">Дата сдачи анализа или прохождения исследования</label>
                                             <div class="row">
@@ -789,12 +794,13 @@
 
 
                                             <label class="form-label">Медицинское учреждение</label>
-                                            <select name="country" class="form-control form-select" data-bs-placeholder="...">
-                                                    <option value="m1">"Invitro"</option>
-                                                    <option value="m2">ГБУЗ</option>
-                                                    <option value="m3">Гематест</option>
-                                                    <option value="pass" selected>...</option>
-                                            </select>
+                                            {{ form.place_of_analysis }}
+<!--                                            <select name="country" class="form-control form-select" data-bs-placeholder="...">-->
+<!--                                                    <option value="m1">"Invitro"</option>-->
+<!--                                                    <option value="m2">ГБУЗ</option>-->
+<!--                                                    <option value="m3">Гематест</option>-->
+<!--                                                    <option value="pass" selected>...</option>-->
+<!--                                            </select>-->
                                         </div>
                                     </div>
                                     <div class="card-body selected-form" id="pass-selected" style="display: block">
@@ -834,32 +840,47 @@
                                             <div class="col col-lg-4">
                                                 фл
                                             </div>
-                                        </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="row add-analysis-row">
-                                            <label>Гемоглобин</label>
+                                            <label>Среднее содержание гемоглобина</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
                                             <div class="col col-lg-4">
                                                 г/л
                                             </div>
-                                            <label>Эритроциты</label>
+                                        </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row add-analysis-row">
+
+                                            <label>Средняя концентрация гемоглобина</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
                                             <div class="col col-lg-4">
                                                 х10*12/л
                                             </div>
-                                            <label>Гематокрит</label>
+                                            <label>Ширина распределения эритроцитов</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
                                             <div class="col col-lg-4">
                                                 %
                                             </div>
-                                            <label>Средний объем эритроцитов</label>
+                                            <label>Лейкоциты</label>
+                                            <div class="col col-lg-8">
+                                                <input class="form-control add-analysis-results" placeholder="...">
+                                            </div>
+                                            <div class="col col-lg-4">
+                                                фл
+                                            </div>
+                                            <label>Моноциты</label>
+                                            <div class="col col-lg-8">
+                                                <input class="form-control add-analysis-results" placeholder="...">
+                                            </div>
+                                            <div class="col col-lg-4">
+                                                фл
+                                            </div>
+                                            <label>Лимфоциты</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
@@ -870,28 +891,28 @@
                                             </div>
                                             <div class="col">
                                                 <div class="row add-analysis-row">
-                                            <label>Гемоглобин</label>
+                                            <label>Тромбоциты</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
                                             <div class="col col-lg-4">
                                                 г/л
                                             </div>
-                                            <label>Эритроциты</label>
+                                            <label>Средний объем тромбоцита</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
                                             <div class="col col-lg-4">
                                                 х10*12/л
                                             </div>
-                                            <label>Гематокрит</label>
+                                            <label>Тромбокрит</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
                                             <div class="col col-lg-4">
                                                 %
                                             </div>
-                                            <label>Средний объем эритроцитов</label>
+                                            <label>СОЭ методом капиллярной микрофотометрии</label>
                                             <div class="col col-lg-8">
                                                 <input class="form-control add-analysis-results" placeholder="...">
                                             </div>
@@ -923,9 +944,14 @@
                                     </div>
 
 
+                                    <div class="card-body selected-form">
+                                        <input type="submit"  class="btn btn-primary" value="Сохранить">
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
+                        </form>
                         <!-- /Row -->
                     </div>
                     <!-- CONTAINER CLOSED -->

@@ -557,19 +557,24 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="profile-img-1 col-lg-1 profile-img-s">
-                                                 <img src="../static/assets/images/users/21.jpg" alt="img" class="avatar avatar-xxl brround profile-img-avatar">
-                                             </div>
+                                                        <div class="col-lg-1">
+                                                            <div class="profile-cover__img">
+                                                            <div class="profile-img-1">
+                                                                 <img src="../static/assets/images/users/21.jpg" alt="img" class="">
+                                                             </div>
+                                                            </div>
 
-                                            <div class="profile-img-content text-dark text-start col-lg-4">
-                                                <div class="text-dark">
+                                                        </div>
 
-                                                    <h3 class="h3 mb-2">{{ user.patient.last_name }} {{ user.patient.first_name }} {{ user.patient.patronymic }}</h3>
-                                                    <h5 class="h5 mb-2">{{ user.patient.email }}</h5>
-<!--                                                    <h5 class="text-muted">{ user.patient.last_name}</h5>-->
-<!--                                                    <h5 class="text-muted">35 лет</h5>-->
-                                                </div>
-                                            </div>
+                                                        <div class="profile-img-content text-dark text-start col-lg-6">
+                                                            <div class="text-dark">
+
+                                                                <h3 class="h3 mb-2">{{ user.patient.last_name }} {{ user.patient.first_name }} {{ user.patient.patronymic }}</h3>
+                                                                <h5 class="h5 mb-2">{{ user.patient.email }}</h5>
+            <!--                                                    <h5 class="text-muted">{ user.patient.last_name}</h5>-->
+            <!--                                                    <h5 class="text-muted">35 лет</h5>-->
+                                                            </div>
+                                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -584,9 +589,12 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class=" col-lg-6 profile-img-m">
-                                                 <img src="../static/assets/images/doc-template-photo.jpg" alt="img" class="">
+                                                <div class="profile-cover__img col-lg-6">
+                                                    <div class="profile-img-1">
+                                                        <img src="../static/assets/images/doc-template-photo.jpg" alt="img" class="">
+                                                    </div>
                                                 </div>
+
 
                                                 <div class="profile-img-content text-dark text-start col-lg-6">
                                                     <div class="text-dark">

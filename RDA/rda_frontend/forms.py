@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Patient
+from .models import Patient, Analysis
 
 
 class RegisterForm(UserCreationForm):
@@ -74,7 +74,77 @@ class EditPassword(PasswordChangeForm):
 
     new_password2 = forms.CharField(label='Повторите новый пароль',
                                help_text=password_validation.password_validators_help_text_html(),
-                               widget=forms.PasswordInput(attrs={'class': 'form-control', 'for': 'login-password'}))
+                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+
+class NewAnalysis(forms.ModelForm):
+    # user_id = forms.IntegerField()
+    #analysis_id = forms.IntegerField()
+    types = [('1', '...'),
+             ('2', 'Общий анализ крови'),
+             ('3', 'Общий анализ мочи'),
+             ('4', 'Анализ крови на С-реактивный белок'),
+             ('5', 'Ревматоидный фактор'),
+             ('6', 'Антитела к циклическому цитруллинированному пептиду'),
+             ]
+
+    places = [('1', '...'),
+             ('2', 'Место №1'),
+             ('3', 'Место №2'),
+             ('4', 'Место №3'),
+             ('5', 'Место №4'),
+             ('6', 'Место №5'),
+
+    ]
+
+    #class ="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onclick= "addAnalysisForm()" onchange="addAnalysisForm()"
+    analysis_type = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control form-select',
+                                                                 'placeholder': '...',
+                                                                 'id': 'add-analysis-form-select',
+                                                                 'onclick': "addAnalysisForm()",
+                                                                 'onchange': "addAnalysisForm()"
+                                                                 }
+                                                          ),
+                                      choices=types)
+    #analysis_type = forms.CharField(
+    #                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '...'})
+    #                                )
+    #date_of_upload_analysis = forms.DateField()
+    place_of_analysis = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Место сдачи анализа. '
+                                                                                  'Можно использовать для '
+                                                                                  'быстрого поиска по анализам.'}),
+                                          choices=places)
+
+    # place_of_analysis = forms.CharField(
+    #     widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Место сдачи анализа. '
+    #                                                                               'Можно использовать для '
+    #                                                                               'быстрого поиска по анализам.'}
+    #                                )
+    # )
+
+    analysis_user_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название документа, который '
+                                                                              'будет отображаться в введенных '
+                                                                              'анализах'}
+                               )
+    )
+
+    #date_of_analysis = forms.DateField(
+    #    widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '...'})
+    #)
+    class Meta:
+        model = Analysis
+        fields = [
+            #'user',
+            'analysis_id',
+            'analysis_type',
+            #'date_of_upload_analysis',
+            'place_of_analysis',
+            'analysis_user_name',
+            #'date_of_analysis',
+
+
+        ]
 # class EditPassword(ModelForm):
 #     password = forms.CharField(label='Текущий пароль',
 #                                # help_text=password_validation.password_validators_help_text_html(),

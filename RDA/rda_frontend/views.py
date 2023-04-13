@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
-from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword
+from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword, NewAnalysis
 from .models import Patient
 
 
@@ -108,5 +108,17 @@ def analysis_page(request):
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')
 def add_analysis_page(request):
-    return render(request, 'rda_frontend/add-analysis.html')
+    form = NewAnalysis
+
+    if request.method == 'POST':
+        form = NewAnalysis(request.user.patient, request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Показатели анализа успешно введены.')
+        else:
+            messages.error(request, 'Please correct the error below.')
+
+    context = {'form': form}
+    return render(request, 'rda_frontend/add-analysis.html', context)
 
