@@ -149,15 +149,17 @@ class Files(models.Model):
 
 
 class Analysis(models.Model):
-    analysis_id = models.IntegerField()
+    #user = models.OneToOneField(User, on_delete=models.CASCADE, default=0)
+    user_id = models.IntegerField(default=0)
+    analysis_id = models.AutoField(primary_key=True) # при нажатии кнопки создавать новый анализ айди /// пока что тут автоинкремент поля
     # analysis_id = models.IntegerField(primary_key=True)
     analysis_type = models.CharField(max_length=50, null=True)
     date_of_upload_analysis = models.DateTimeField(null=True)
     place_of_analysis = models.CharField(max_length=50, null=True)
-    user_id = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE
-    )
+    # user_id = models.ForeignKey(
+    #     User,
+    #     on_delete=models.CASCADE
+    # )
     # user_id = models.OneToOneField(
     #     User,
     #     on_delete=models.CASCADE,
@@ -165,9 +167,9 @@ class Analysis(models.Model):
     # )
     analysis_user_name = models.CharField(max_length=50, null=True)
     date_of_analysis = models.DateTimeField(null=True)
-
-    class Meta:
-        unique_together = ('user_id', 'analysis_id')
+    #
+    # class Meta:
+    #     unique_together = ('id', 'analysis_id')
     # class Meta:
     #     constraints = [
     #         models.PrimaryKeyConstraint(fields=['analysis_id', 'user_id']),

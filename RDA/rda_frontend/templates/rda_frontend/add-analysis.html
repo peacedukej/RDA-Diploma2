@@ -946,6 +946,9 @@
 
                                     <div class="card-body selected-form">
                                         <input type="submit"  class="btn btn-primary" value="Сохранить">
+                                                                                    {% for message in messages %}
+                                            <p class="mb-0">{{message}}</p>
+                                            {% endfor %}
                                     </div>
 
                                 </div>

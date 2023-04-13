@@ -135,7 +135,7 @@ class NewAnalysis(forms.ModelForm):
     class Meta:
         model = Analysis
         fields = [
-            #'user',
+            #'user_id',
             'analysis_id',
             'analysis_type',
             #'date_of_upload_analysis',

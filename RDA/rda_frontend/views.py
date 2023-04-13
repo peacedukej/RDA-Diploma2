@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
 from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword, NewAnalysis
-from .models import Patient
+from .models import Patient, Analysis
 
 
 # Create your views here.
@@ -109,16 +109,23 @@ def analysis_page(request):
 @user_passes_test(check_access_group, login_url='../account')
 def add_analysis_page(request):
     form = NewAnalysis
-
+    # get_id = request.user.id
+    # Analysis.objects.create(user_id=get_id)
     if request.method == 'POST':
-        form = NewAnalysis(request.user.patient, request.POST)
+        form = NewAnalysis(request.POST)
 
         if form.is_valid():
             form.save()
+# переписать: создавать объект анализа при нажатии на кнопку добавить анализ
+            # здесь переписать как в edit password
+            # если не нажата кнопка сохранить, то удалять??? как
+            Analysis.objects.update(user_id=request.user.id)
+            #Analysis.objects.update(analysis_id=10000+int(get_id))
             messages.success(request, 'Показатели анализа успешно введены.')
         else:
             messages.error(request, 'Please correct the error below.')
-
+    #else:
+    #    form = NewAnalysis(request.POST)
     context = {'form': form}
     return render(request, 'rda_frontend/add-analysis.html', context)
 
