@@ -1,4 +1,7 @@
 function addAnalysisForm() {
+    let select_info = document.getElementById('add-analysis-info');
+    select_info.style.display = "none";
+
     let select = document.getElementById('add-analysis-form-select');
     let block = document.querySelectorAll('.selected-form');
     let lastIndex = 0; // После каждой смены опции, сохраняем сюда индекс предыдущего блока
@@ -12,6 +15,34 @@ function addAnalysisForm() {
 
       lastIndex = index; // Обновить сохраненный индекс.
     });
+}
+
+//function addValuesForm() {
+//
+//    let select_info = document.getElementById('add-analysis-info');
+//    select_info.style.display = "none";
+//
+//
+//    let select = document.getElementById('add-analysis-form-select');
+//    let block = document.querySelectorAll('.selected-form');
+//    let lastIndex = 0; // После каждой смены опции, сохраняем сюда индекс предыдущего блока
+//
+//    select.addEventListener('change', function() {
+//      block[lastIndex].style.display = "none";
+//      // Чтобы сразу делать именно его невидимым при следующей смене
+//
+//      let index = select.selectedIndex; // Определить индекс выбранной опции
+//      block[index].style.display = "block"; // Показать блок с соответствующим индексом
+//
+//      lastIndex = index; // Обновить сохраненный индекс.
+//    });
+
+//    select.addEventListener('change', function() {
+//
+//    }
+//    }
+//    let block = document.querySelectorAll('.selected-form');
+
 }
 
 

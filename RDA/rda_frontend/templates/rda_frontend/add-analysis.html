@@ -675,12 +675,15 @@
 
                         <!-- ROW-1 OPEN -->
                         <!-- Row -->
-                        <form method="POST" action="">
-                            {% csrf_token %}
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div class="card-body">
+
+                                    <form method="POST" action="">
+                                    {% csrf_token %}
+
+                                    <div class="card-body" id="add-analysis-info">
                                         <h5 class="h5 mb-2"><b>Введите название документа</b></h5>
                                         {{ form.analysis_user_name }}
 <!--                                        <input class="form-control add-analysis-results-name" placeholder="Название документа, который будет отображаться в введенных анализах">-->
@@ -803,158 +806,182 @@
 <!--                                            </select>-->
                                         </div>
                                     </div>
-                                    <div class="card-body selected-form" id="pass-selected" style="display: block">
-                                        Не выбран тип анализа!
-                                    </div>
 
-                                    <div class="card-body selected-form" id="a1-selected" style="display: none">
-                                        <p>Выбран "Общий анализ крови"</p>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="row add-analysis-row">
-                                            <label>Гемоглобин</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4 abcde">
-                                                г/л
-                                            </div>
-                                            <label>Эритроциты</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                х10*12/л
-                                            </div>
-                                            <label>Гематокрит</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                %
-                                            </div>
-                                            <label>Средний объем эритроцитов</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                фл
-                                            </div>
-                                            <label>Среднее содержание гемоглобина</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                г/л
-                                            </div>
-                                        </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="row add-analysis-row">
-
-                                            <label>Средняя концентрация гемоглобина</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                х10*12/л
-                                            </div>
-                                            <label>Ширина распределения эритроцитов</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                %
-                                            </div>
-                                            <label>Лейкоциты</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                фл
-                                            </div>
-                                            <label>Моноциты</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                фл
-                                            </div>
-                                            <label>Лимфоциты</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                фл
-                                            </div>
-                                        </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="row add-analysis-row">
-                                            <label>Тромбоциты</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                г/л
-                                            </div>
-                                            <label>Средний объем тромбоцита</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                х10*12/л
-                                            </div>
-                                            <label>Тромбокрит</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                %
-                                            </div>
-                                            <label>СОЭ методом капиллярной микрофотометрии</label>
-                                            <div class="col col-lg-8">
-                                                <input class="form-control add-analysis-results" placeholder="...">
-                                            </div>
-                                            <div class="col col-lg-4">
-                                                фл
-                                            </div>
-                                        </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <div class="card-body selected-form" id="a2-selected" style="display: none">
-                                        Выбран "Общий анализ мочи"
-                                    </div>
-
-                                    <div class="card-body selected-form" id="a3-selected" style="display: none">
-                                        Выбран "Анализ крови на С-реактивный белок"
-                                    </div>
-
-                                    <div class="card-body selected-form" id="a4-selected" style="display: none">
-                                        Выбран "Ревматоидный фактор"
-                                    </div>
-
-                                    <div class="card-body selected-form" id="a5-selected" style="display: none">
-                                        Выбран "Антитела к циклическому цитруллинированному пептиду"
-                                    </div>
-
-
-                                    <div class="card-body selected-form">
-                                        <input type="submit"  class="btn btn-primary" value="Сохранить">
-                                                                                    {% for message in messages %}
+                                    <div class="card-body">
+                                        <input type="submit"  class="btn btn-primary" value="Далее" onclick="addValuesForm()">
+                                        {% for message in messages %}
                                             <p class="mb-0">{{message}}</p>
-                                            {% endfor %}
+                                        {% endfor %}
                                     </div>
+
+                        </form>
+
+                                    {%if form.analysis_status == 'In process' %}
+                                    <form method="POST" action="">
+                                        {%csrf_token%}
+                                        {%if form.analysis_type == 'Общий анализ крови'%}
+                                        <div class="card-body selected-form" id="pass-selected" style="display: block">
+                                            Не выбран тип анализа!
+                                        </div>
+                                        {%endif%}
+                                        {%if form.analysis_type == 'Общий анализ мочи'%}
+                                        <div class="card-body selected-form" id="a1-selected" style="display: none">
+                                            <p>Выбран "Общий анализ крови"</p>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="row add-analysis-row">
+
+
+                                                <label>Гемоглобин</label>
+                                                <div class="col col-lg-8">
+                                                    {{value_form.value}}
+    <!--                                                <input class="form-control add-analysis-results" placeholder="...">-->
+                                                </div>
+                                                <div class="col col-lg-4 abcde">
+                                                    г/л
+                                                </div>
+
+
+
+                                                <label>Эритроциты</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    х10*12/л
+                                                </div>
+                                                <label>Гематокрит</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    %
+                                                </div>
+                                                <label>Средний объем эритроцитов</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    фл
+                                                </div>
+                                                <label>Среднее содержание гемоглобина</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    г/л
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row add-analysis-row">
+
+                                                <label>Средняя концентрация гемоглобина</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    х10*12/л
+                                                </div>
+                                                <label>Ширина распределения эритроцитов</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    %
+                                                </div>
+                                                <label>Лейкоциты</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    фл
+                                                </div>
+                                                <label>Моноциты</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    фл
+                                                </div>
+                                                <label>Лимфоциты</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    фл
+                                                </div>
+                                            </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row add-analysis-row">
+                                                <label>Тромбоциты</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    г/л
+                                                </div>
+                                                <label>Средний объем тромбоцита</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    х10*12/л
+                                                </div>
+                                                <label>Тромбокрит</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    %
+                                                </div>
+                                                <label>СОЭ методом капиллярной микрофотометрии</label>
+                                                <div class="col col-lg-8">
+                                                    <input class="form-control add-analysis-results" placeholder="...">
+                                                </div>
+                                                <div class="col col-lg-4">
+                                                    фл
+                                                </div>
+                                            </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        {%endif%}
+{%if form.analysis_type == '3'%}
+                                        <div class="card-body selected-form" id="a2-selected" style="display: none">
+                                            Выбран "Общий анализ мочи"
+                                        </div>
+{%endif%}
+                                        <div class="card-body selected-form" id="a3-selected" style="display: none">
+                                            Выбран "Анализ крови на С-реактивный белок"
+                                        </div>
+
+                                        <div class="card-body selected-form" id="a4-selected" style="display: none">
+                                            Выбран "Ревматоидный фактор"
+                                        </div>
+
+                                        <div class="card-body selected-form" id="a5-selected" style="display: none">
+                                            Выбран "Антитела к циклическому цитруллинированному пептиду"
+                                        </div>
+
+
+                                        <div class="card-body">
+                                        <input type="submit"  class="btn btn-primary" value="Сохранить" >
+                                        {% for message in messages %}
+                                            <p class="mb-0">{{message}}</p>
+                                        {% endfor %}
+                                    </div>
+                                    </form>
+                                    {%endif%}
 
                                 </div>
                             </div>
                         </div>
-                        </form>
+
                         <!-- /Row -->
                     </div>
                     <!-- CONTAINER CLOSED -->
@@ -1520,7 +1547,7 @@
     <!-- CUSTOM JS -->
     <script src="../static/assets/js/custom.js"></script>
 
-    <script src="../static/assets/js/analys-type-form.js"></script>
+<!--    <script src="../static/assets/js/analys-type-form.js"></script>-->
 
 </body>
 

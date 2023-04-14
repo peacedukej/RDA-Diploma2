@@ -31,4 +31,5 @@ urlpatterns = [
     path('documents/', views.documents_page),
     path('analysis/', views.analysis_page),
     path('add analysis/', views.add_analysis_page),
+    path('add analysis/', views.add_analysis_values),
 ]

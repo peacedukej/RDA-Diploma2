@@ -4,8 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 
-from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword, NewAnalysis
-from .models import Patient, Analysis
+from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword, NewAnalysis, NewAnalysisFields#, NewAnalysisButton
+from .models import Patient, Analysis, AnalysisFields
 
 
 # Create your views here.
@@ -120,6 +120,7 @@ def add_analysis_page(request):
             # здесь переписать как в edit password
             # если не нажата кнопка сохранить, то удалять??? как
             Analysis.objects.update(user_id=request.user.id)
+            Analysis.objects.update(analysis_status='In process')
             #Analysis.objects.update(analysis_id=10000+int(get_id))
             messages.success(request, 'Показатели анализа успешно введены.')
         else:
@@ -129,3 +130,32 @@ def add_analysis_page(request):
     context = {'form': form}
     return render(request, 'rda_frontend/add-analysis.html', context)
 
+
+def add_analysis_values(request):
+    value_form = NewAnalysisFields
+
+    if request.method == 'POST':
+        value_form = NewAnalysisFields(request.POST)
+
+        if value_form.is_valid():
+            value_form.save()
+        else:
+            messages.error(request, 'Please correct the error below.')
+
+    context = {'form': value_form}
+    return render(request, 'rda_frontend/add-analysis.html', context)
+
+
+# def analysis_button(request):
+#     form = NewAnalysisButton
+#
+#     if request.method == 'POST':
+#         form = NewAnalysisButton(request.POST)
+#
+#         if form.is_valid():
+#             form.save()
+#         else:
+#         messages.error(request, 'Please correct the error below.')
+#
+#     context = {'form': value_form}
+#     return render(request, 'rda_frontend/add-analysis.html', context)

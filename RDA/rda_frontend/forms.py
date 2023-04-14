@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Patient, Analysis
+from .models import Patient, Analysis, AnalysisFields
 
 
 class RegisterForm(UserCreationForm):
@@ -65,39 +65,51 @@ class NewUserProfile(ModelForm):
 
 class EditPassword(PasswordChangeForm):
     old_password = forms.CharField(label='Текущий пароль',
-                               help_text=password_validation.password_validators_help_text_html(),
-                               widget=forms.PasswordInput(attrs={'class': 'form-control', 'for': 'login-password'}))
+                                   help_text=password_validation.password_validators_help_text_html(),
+                                   widget=forms.PasswordInput(attrs={'class': 'form-control', 'for': 'login-password'}))
 
     new_password1 = forms.CharField(label='Новый пароль',
-                               help_text=password_validation.password_validators_help_text_html(),
-                               widget=forms.PasswordInput(attrs={'class': 'form-control', 'for': 'login-password'}))
+                                    help_text=password_validation.password_validators_help_text_html(),
+                                    widget=forms.PasswordInput(
+                                        attrs={'class': 'form-control', 'for': 'login-password'}))
 
     new_password2 = forms.CharField(label='Повторите новый пароль',
-                               help_text=password_validation.password_validators_help_text_html(),
-                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+                                    help_text=password_validation.password_validators_help_text_html(),
+                                    widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+
+# class NewAnalysisButton(forms.ModelForm):
+#     #analysis_status = forms.CharField()
+#     class Meta:
+#         model = Analysis
+#         fields = [
+#             'analysis_status'
+#         ]
+
 
 
 class NewAnalysis(forms.ModelForm):
     # user_id = forms.IntegerField()
-    #analysis_id = forms.IntegerField()
-    types = [('1', '...'),
-             ('2', 'Общий анализ крови'),
-             ('3', 'Общий анализ мочи'),
-             ('4', 'Анализ крови на С-реактивный белок'),
-             ('5', 'Ревматоидный фактор'),
-             ('6', 'Антитела к циклическому цитруллинированному пептиду'),
+    # analysis_id = forms.IntegerField()
+    types = [('Null', '...'),
+             ('Общий анализ крови', 'Общий анализ крови'),
+             ('Общий анализ мочи', 'Общий анализ мочи'),
+             ('Анализ крови на С-реактивный белок', 'Анализ крови на С-реактивный белок'),
+             ('Ревматоидный фактор', 'Ревматоидный фактор'),
+             ('Антитела к циклическому цитруллинированному пептиду',
+              'Антитела к циклическому цитруллинированному пептиду'),
              ]
 
-    places = [('1', '...'),
-             ('2', 'Место №1'),
-             ('3', 'Место №2'),
-             ('4', 'Место №3'),
-             ('5', 'Место №4'),
-             ('6', 'Место №5'),
+    places = [('Null', '...'),
+              ('Место №1', 'Место №1'),
+              ('Место №2', 'Место №2'),
+              ('Место №3', 'Место №3'),
+              ('Место №4', 'Место №4'),
+              ('Место №5', 'Место №5'),
 
-    ]
+              ]
 
-    #class ="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onclick= "addAnalysisForm()" onchange="addAnalysisForm()"
+    # class ="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onclick= "addAnalysisForm()" onchange="addAnalysisForm()"
     analysis_type = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control form-select',
                                                                  'placeholder': '...',
                                                                  'id': 'add-analysis-form-select',
@@ -106,14 +118,15 @@ class NewAnalysis(forms.ModelForm):
                                                                  }
                                                           ),
                                       choices=types)
-    #analysis_type = forms.CharField(
+    # analysis_type = forms.CharField(
     #                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '...'})
     #                                )
-    #date_of_upload_analysis = forms.DateField()
-    place_of_analysis = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Место сдачи анализа. '
-                                                                                  'Можно использовать для '
-                                                                                  'быстрого поиска по анализам.'}),
-                                          choices=places)
+    # date_of_upload_analysis = forms.DateField()
+    place_of_analysis = forms.ChoiceField(
+        widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Место сдачи анализа. '
+                                                                           'Можно использовать для '
+                                                                           'быстрого поиска по анализам.'}),
+        choices=places)
 
     # place_of_analysis = forms.CharField(
     #     widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Место сдачи анализа. '
@@ -129,22 +142,38 @@ class NewAnalysis(forms.ModelForm):
                                )
     )
 
-    #date_of_analysis = forms.DateField(
+    #analysis_status =
+
+    # date_of_analysis = forms.DateField(
     #    widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '...'})
-    #)
+    # )
     class Meta:
         model = Analysis
         fields = [
-            #'user_id',
+            # 'user_id',
             'analysis_id',
             'analysis_type',
-            #'date_of_upload_analysis',
+            # 'date_of_upload_analysis',
             'place_of_analysis',
             'analysis_user_name',
-            #'date_of_analysis',
-
+            # 'date_of_analysis',
+            #'analysis_status'
 
         ]
+
+
+class NewAnalysisFields(forms.ModelForm):
+    value = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+
+    class Meta:
+        model = AnalysisFields
+
+        fields = [
+            # 'name',
+            'value',
+        ]
+
 # class EditPassword(ModelForm):
 #     password = forms.CharField(label='Текущий пароль',
 #                                # help_text=password_validation.password_validators_help_text_html(),

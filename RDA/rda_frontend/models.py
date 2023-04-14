@@ -149,6 +149,7 @@ class Files(models.Model):
 
 
 class Analysis(models.Model):
+
     #user = models.OneToOneField(User, on_delete=models.CASCADE, default=0)
     user_id = models.IntegerField(default=0)
     analysis_id = models.AutoField(primary_key=True) # при нажатии кнопки создавать новый анализ айди /// пока что тут автоинкремент поля
@@ -156,17 +157,16 @@ class Analysis(models.Model):
     analysis_type = models.CharField(max_length=50, null=True)
     date_of_upload_analysis = models.DateTimeField(null=True)
     place_of_analysis = models.CharField(max_length=50, null=True)
-    # user_id = models.ForeignKey(
-    #     User,
-    #     on_delete=models.CASCADE
-    # )
-    # user_id = models.OneToOneField(
-    #     User,
-    #     on_delete=models.CASCADE,
-    #     primary_key=True,
-    # )
     analysis_user_name = models.CharField(max_length=50, null=True)
     date_of_analysis = models.DateTimeField(null=True)
+    analysis_status = models.CharField(default='Created', max_length=20)
+
+
+class AnalysisFields(models.Model):
+    analysis_id = models.OneToOneField(Analysis, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50, null=True)
+    value = models.FloatField(null=True)
+    analysis_type = models.CharField(max_length=50, null=True)
     #
     # class Meta:
     #     unique_together = ('id', 'analysis_id')
@@ -184,6 +184,11 @@ def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Patient.objects.create(user=instance, email=instance.email)
 
+
+@receiver(post_save, sender=Analysis)
+def update_analysis_fields(sender, instance, created, **kwargs):
+    if created:
+        AnalysisFields.objects.create(analysis_id=instance, analysis_type=instance.analysis_type)
         # print(str(Patient.email))
         # print(User.objects.get('email'))
         # email = User.objects.get('email')
