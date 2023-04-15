@@ -108,42 +108,69 @@ def analysis_page(request):
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')
 def add_analysis_page(request):
-    form = NewAnalysis
+    #Analysis.objects.create()
+
+    analysis_info_form = NewAnalysis
+    analysis_fields_form = NewAnalysisFields
     # get_id = request.user.id
     # Analysis.objects.create(user_id=get_id)
     if request.method == 'POST':
-        form = NewAnalysis(request.POST)
+        analysis_info_form = NewAnalysis(request.POST)
+        analysis_fields_form = NewAnalysisFields(request.POST)
 
-        if form.is_valid():
-            form.save()
+        if analysis_info_form.is_valid() and analysis_fields_form.is_valid():
+            analysis_info = analysis_info_form.save()  # Сохраняем analysis_info_form и получаем объект
+
+
+            Analysis.objects.update(user_id=request.user.id)
+            analysis_id = analysis_info.analysis_id
+
+            analysis_fields_form.save()
+            AnalysisFields.objects.update(analysis_id=analysis_id)  # Передаем analysis_id в update()
+
+
+
+            # analysis_info_form.save()
+            # Analysis.objects.update(user_id=request.user.id)
+            #
+            # AnalysisFields.objects.update(analysis_id=request.POST('analysis_id'))
+            # analysis_fields_form.save()
+
+
+
+
+            #AnalysisFields.objects.update(analysis_id=analysis_info_form.cleaned_data.get('analysis_id'))
+
+
 # переписать: создавать объект анализа при нажатии на кнопку добавить анализ
             # здесь переписать как в edit password
             # если не нажата кнопка сохранить, то удалять??? как
-            Analysis.objects.update(user_id=request.user.id)
-            Analysis.objects.update(analysis_status='In process')
+
+            #Analysis.objects.update(analysis_status='In process')
             #Analysis.objects.update(analysis_id=10000+int(get_id))
             messages.success(request, 'Показатели анализа успешно введены.')
         else:
             messages.error(request, 'Please correct the error below.')
     #else:
     #    form = NewAnalysis(request.POST)
-    context = {'form': form}
+    context = {'analysis_info_form': analysis_info_form, 'analysis_fields_form': analysis_fields_form}
     return render(request, 'rda_frontend/add-analysis.html', context)
 
 
-def add_analysis_values(request):
-    value_form = NewAnalysisFields
-
-    if request.method == 'POST':
-        value_form = NewAnalysisFields(request.POST)
-
-        if value_form.is_valid():
-            value_form.save()
-        else:
-            messages.error(request, 'Please correct the error below.')
-
-    context = {'form': value_form}
-    return render(request, 'rda_frontend/add-analysis.html', context)
+# def add_analysis_values(request):
+#     value_form = NewAnalysisFields
+#
+#     if request.method == 'POST':
+#         value_form = NewAnalysisFields(request.POST)
+#
+#         if value_form.is_valid():
+#             value_form.save()
+#             return redirect('../add-analysis')
+#         else:
+#             messages.error(request, 'Please correct the error below.')
+#
+#     context = {'form': value_form}
+#     return render(request, 'rda_frontend/add-analysis.html', context)
 
 
 # def analysis_button(request):

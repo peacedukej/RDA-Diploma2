@@ -163,10 +163,100 @@ class Analysis(models.Model):
 
 
 class AnalysisFields(models.Model):
-    analysis_id = models.OneToOneField(Analysis, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50, null=True)
-    value = models.FloatField(null=True)
+    #analysis_id = models.OneToOneField(Analysis, on_delete=models.CASCADE, primary_key=True)
+    analysis_id = models.IntegerField(primary_key=True)
     analysis_type = models.CharField(max_length=50, null=True)
+
+    #field_1 = models.CharField(max_length=30, null=True)
+    value_1 = models.CharField(max_length=15, null=True)
+
+    #field_2 = models.CharField(max_length=30, null=True)
+    value_2 = models.CharField(max_length=15, null=True)
+
+    #field_3 = models.CharField(max_length=30, null=True)
+    value_3 = models.CharField(max_length=15, null=True)
+
+    #field_4 = models.CharField(max_length=30, null=True)
+    value_4 = models.CharField(max_length=15, null=True)
+
+    #field_5 = models.CharField(max_length=30, null=True)
+    value_5 = models.CharField(max_length=15, null=True)
+
+    #field_6 = models.CharField(max_length=30, null=True)
+    value_6 = models.CharField(max_length=15, null=True)
+
+    #field_7 = models.CharField(max_length=30, null=True)
+    value_7 = models.CharField(max_length=15, null=True)
+
+    #field_8 = models.CharField(max_length=30, null=True)
+    value_8 = models.CharField(max_length=15, null=True)
+
+    #field_9 = models.CharField(max_length=30, null=True)
+    value_9 = models.CharField(max_length=15, null=True)
+
+    #field_10 = models.CharField(max_length=30, null=True)
+    value_10 = models.CharField(max_length=15, null=True)
+
+    #field_11 = models.CharField(max_length=30, null=True)
+    value_11 = models.CharField(max_length=15, null=True)
+
+    #field_12 = models.CharField(max_length=30, null=True)
+    value_12 = models.CharField(max_length=15, null=True)
+
+    #field_13 = models.CharField(max_length=30, null=True)
+    value_13 = models.CharField(max_length=15, null=True)
+
+    #field_14 = models.CharField(max_length=30, null=True)
+    value_14 = models.CharField(max_length=15, null=True)
+
+    #field_15 = models.CharField(max_length=30, null=True)
+    value_15 = models.CharField(max_length=15, null=True)
+
+    #field_16 = models.CharField(max_length=30, null=True)
+    value_16 = models.CharField(max_length=15, null=True)
+
+    #field_17 = models.CharField(max_length=30, null=True)
+    value_17 = models.CharField(max_length=15, null=True)
+
+    #field_18 = models.CharField(max_length=30, null=True)
+    value_18 = models.CharField(max_length=15, null=True)
+
+    #field_19 = models.CharField(max_length=30, null=True)
+    value_19 = models.CharField(max_length=15, null=True)
+
+    #field_20 = models.CharField(max_length=30, null=True)
+    value_20 = models.CharField(max_length=15, null=True)
+
+    #field_21 = models.CharField(max_length=30, null=True)
+    value_21 = models.CharField(max_length=15, null=True)
+
+    #field_22 = models.CharField(max_length=30, null=True)
+    value_22 = models.CharField(max_length=15, null=True)
+
+    #field_23 = models.CharField(max_length=30, null=True)
+    value_23 = models.CharField(max_length=15, null=True)
+
+    #field_24 = models.CharField(max_length=30, null=True)
+    value_24 = models.CharField(max_length=15, null=True)
+
+    #field_25 = models.CharField(max_length=30, null=True)
+    value_25 = models.CharField(max_length=15, null=True)
+
+    #field_26 = models.CharField(max_length=30, null=True)
+    value_26 = models.CharField(max_length=15, null=True)
+
+    #field_27 = models.CharField(max_length=30, null=True)
+    value_27 = models.CharField(max_length=15, null=True)
+
+   # field_28 = models.CharField(max_length=30, null=True)
+    value_28 = models.CharField(max_length=15, null=True)
+
+   # field_29 = models.CharField(max_length=30, null=True)
+    value_29 = models.CharField(max_length=15, null=True)
+
+   # field_30 = models.CharField(max_length=30, null=True)
+    value_30 = models.CharField(max_length=15, null=True)
+
     #
     # class Meta:
     #     unique_together = ('id', 'analysis_id')
@@ -185,10 +275,10 @@ def update_profile_signal(sender, instance, created, **kwargs):
         Patient.objects.create(user=instance, email=instance.email)
 
 
-@receiver(post_save, sender=Analysis)
-def update_analysis_fields(sender, instance, created, **kwargs):
-    if created:
-        AnalysisFields.objects.create(analysis_id=instance, analysis_type=instance.analysis_type)
+    # @receiver(post_save, sender=Analysis)
+    # def update_analysis_fields(sender, instance, created, **kwargs):
+    #     if created:
+    #         AnalysisFields.objects.create(analysis_id=instance.analysis_id, analysis_type=instance.analysis_type)
         # print(str(Patient.email))
         # print(User.objects.get('email'))
         # email = User.objects.get('email')

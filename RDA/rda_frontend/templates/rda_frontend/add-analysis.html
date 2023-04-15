@@ -37,6 +37,7 @@
     <link href="../static/assets/switcher/css/switcher.css" rel="stylesheet" />
     <link href="../static/assets/switcher/demo.css" rel="stylesheet" />
 
+
 </head>
 
 <body class="app sidebar-mini ltr light-mode">
@@ -675,23 +676,54 @@
 
                         <!-- ROW-1 OPEN -->
                         <!-- Row -->
+                                    <form method="POST" action="">
+                                    {% csrf_token %}
+
+                                        <script src="../static/assets/js/analys-type-form.js"></script>
+                                        <script>
+
+                                              function addAnalysisForm() {
+                                                let select = document.getElementById('add-analysis-form-select');
+                                                let block = document.querySelectorAll('.selected-form');
+                                                let lastIndex = 0; // После каждой смены опции, сохраняем сюда индекс предыдущего блока
+
+                                                select.addEventListener('change', function() {
+                                                  block[lastIndex].style.display = "none";
+                                                  // Чтобы сразу делать именно его невидимым при следующей смене
+
+                                                  let index = select.selectedIndex; // Определить индекс выбранной опции
+                                                  block[index].style.display = "block"; // Показать блок с соответствующим индексом
+
+                                                  lastIndex = index; // Обновить сохраненный индекс.
+
+                                                //let select_info = document.getElementById('add-analysis-info');
+                                                //select_info.style.display = "none";
+
+
+                                                });
+                                            }
+                                        </script>
+
+
+
+
+
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
 
-                                    <form method="POST" action="">
-                                    {% csrf_token %}
+
 
                                     <div class="card-body" id="add-analysis-info">
                                         <h5 class="h5 mb-2"><b>Введите название документа</b></h5>
-                                        {{ form.analysis_user_name }}
+                                        {{ analysis_info_form.analysis_user_name }}
 <!--                                        <input class="form-control add-analysis-results-name" placeholder="Название документа, который будет отображаться в введенных анализах">-->
                                         <br>
                                         <h5 class="h5 mb-2"><b>Внесите информацию о проведенном анализе</b></h5>
                                         <div class="form-group">
                                             <label class="form-label" onload="addAnalysisForm()">Вид анализа или исследования</label>
-                                            {{ form.analysis_type }}
+                                            {{ analysis_info_form.analysis_type }}
 <!--                                            <select name="country" class="form-control form-select" id="add-analysis-form-select" data-bs-placeholder="..." onclick= "addAnalysisForm()" onchange="addAnalysisForm()">-->
 <!--                                                    <option value="pass" selected>...</option>-->
 <!--                                                    <option value="a1">Общий анализ крови</option>-->
@@ -797,7 +829,7 @@
 
 
                                             <label class="form-label">Медицинское учреждение</label>
-                                            {{ form.place_of_analysis }}
+                                            {{ analysis_info_form.place_of_analysis }}
 <!--                                            <select name="country" class="form-control form-select" data-bs-placeholder="...">-->
 <!--                                                    <option value="m1">"Invitro"</option>-->
 <!--                                                    <option value="m2">ГБУЗ</option>-->
@@ -808,154 +840,203 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <input type="submit"  class="btn btn-primary" value="Далее" onclick="addValuesForm()">
+<!--                                        <input type="submit"  class="btn btn-primary" value="Далее"">-->
                                         {% for message in messages %}
                                             <p class="mb-0">{{message}}</p>
                                         {% endfor %}
                                     </div>
 
-                        </form>
 
-                                    {%if form.analysis_status == 'In process' %}
-                                    <form method="POST" action="">
-                                        {%csrf_token%}
-                                        {%if form.analysis_type == 'Общий анализ крови'%}
+
+
+
+
+
                                         <div class="card-body selected-form" id="pass-selected" style="display: block">
                                             Не выбран тип анализа!
                                         </div>
-                                        {%endif%}
-                                        {%if form.analysis_type == 'Общий анализ мочи'%}
+
+
                                         <div class="card-body selected-form" id="a1-selected" style="display: none">
                                             <p>Выбран "Общий анализ крови"</p>
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="row add-analysis-row">
+                                                        <div>
+                                                            {{analysis_fields_form.value_1.label}}
+                                                        </div>
+
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_1}}
+                                                        </div>
+                                                        <div class="col col-lg-4 abcde">
+                                                            г/л
+                                                        </div>
+
+                                                        <div>
+                                                            {{analysis_fields_form.value_2.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                         {{analysis_fields_form.value_2}}
+                                                         </div>
+                                                        <div class="col col-lg-4">
+                                                            х10*12/л
+                                                        </div>
+
+                                                        <div>
+                                                            {{analysis_fields_form.value_3.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_3}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            %
+                                                        </div>
 
 
-                                                <label>Гемоглобин</label>
-                                                <div class="col col-lg-8">
-                                                    {{value_form.value}}
-    <!--                                                <input class="form-control add-analysis-results" placeholder="...">-->
-                                                </div>
-                                                <div class="col col-lg-4 abcde">
-                                                    г/л
-                                                </div>
+                                                        <div>
+                                                            {{analysis_fields_form.value_4.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_4}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            фл
+                                                        </div>
 
 
+                                                        <div>
+                                                            {{analysis_fields_form.value_5.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_5}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            г/л
+                                                        </div>
 
-                                                <label>Эритроциты</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    х10*12/л
-                                                </div>
-                                                <label>Гематокрит</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    %
-                                                </div>
-                                                <label>Средний объем эритроцитов</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    фл
-                                                </div>
-                                                <label>Среднее содержание гемоглобина</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    г/л
-                                                </div>
-                                            </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row add-analysis-row">
 
-                                                <label>Средняя концентрация гемоглобина</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    х10*12/л
-                                                </div>
-                                                <label>Ширина распределения эритроцитов</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    %
-                                                </div>
-                                                <label>Лейкоциты</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    фл
-                                                </div>
-                                                <label>Моноциты</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    фл
-                                                </div>
-                                                <label>Лимфоциты</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    фл
-                                                </div>
-                                            </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="row add-analysis-row">
-                                                <label>Тромбоциты</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    г/л
-                                                </div>
-                                                <label>Средний объем тромбоцита</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    х10*12/л
-                                                </div>
-                                                <label>Тромбокрит</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    %
-                                                </div>
-                                                <label>СОЭ методом капиллярной микрофотометрии</label>
-                                                <div class="col col-lg-8">
-                                                    <input class="form-control add-analysis-results" placeholder="...">
-                                                </div>
-                                                <div class="col col-lg-4">
-                                                    фл
-                                                </div>
-                                            </div>
-                                                </div>
-                                            </div>
+                                                    </div>
+                                                        </div>
+
+
+                                                        <div class="col">
+                                                            <div class="row add-analysis-row">
+                                                                <div>
+                                                                    {{analysis_fields_form.value_6.label}}
+                                                                    </div>
+                                                                <div class="col col-lg-8">
+                                                                    {{analysis_fields_form.value_6}}
+                                                                </div>
+                                                        <div class="col col-lg-4">
+                                                            х10*12/л
+                                                        </div>
+
+                                                        <div>
+                                                            {{analysis_fields_form.value_7.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                        {{analysis_fields_form.value_7}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            %
+                                                        </div>
+
+                                                         <div>
+                                                            {{analysis_fields_form.value_8.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_8}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            фл
+                                                        </div>
+
+
+                                                         <div>
+                                                            {{analysis_fields_form.value_9.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_9}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            фл
+                                                        </div>
+
+
+                                                        <div>
+                                                            {{analysis_fields_form.value_10.label}}
+                                                        </div>
+                                                        <div class="col col-lg-8">
+                                                            {{analysis_fields_form.value_10}}
+                                                        </div>
+                                                        <div class="col col-lg-4">
+                                                            фл
+                                                        </div>
+
+
+                                                    </div>
+                                                        </div>
+
+
+                                                        <div class="col">
+                                                            <div class="row add-analysis-row">
+                                                                <div>
+                                                                     {{analysis_fields_form.value_11.label}}
+                                                                </div>
+                                                                <div class="col col-lg-8">
+                                                                {{analysis_fields_form.value_11}}
+                                                                </div>
+                                                                <div class="col col-lg-4">
+                                                                 г/л
+                                                                </div>
+
+
+                                                                <div>
+                                                                    {{analysis_fields_form.value_12.label}}
+                                                                </div>
+                                                                <div class="col col-lg-8">
+                                                                 {{analysis_fields_form.value_12}}
+                                                                </div>
+                                                                <div class="col col-lg-4">
+                                                                    х10*12/л
+                                                                </div>
+
+
+                                                                <div>
+                                                                    {{analysis_fields_form.value_13.label}}
+                                                                </div>
+                                                                <div class="col col-lg-8">
+                                                                 {{analysis_fields_form.value_13}}
+                                                                </div>
+                                                                <div class="col col-lg-4">
+                                                                   %
+                                                                </div>
+
+
+                                                                <div>
+                                                                     {{analysis_fields_form.value_14.label}}
+                                                                </div>
+                                                                <div class="col col-lg-8">
+                                                                {{analysis_fields_form.value_14}}
+                                                                </div>
+
+                                                                <div class="col col-lg-4">
+                                                                    фл
+                                                                </div>
+                                                    </div>
+                                                        </div>
+                                                    </div>
 
 
 
                                         </div>
-                                        {%endif%}
-{%if form.analysis_type == '3'%}
+
+
                                         <div class="card-body selected-form" id="a2-selected" style="display: none">
                                             Выбран "Общий анализ мочи"
                                         </div>
-{%endif%}
+
                                         <div class="card-body selected-form" id="a3-selected" style="display: none">
                                             Выбран "Анализ крови на С-реактивный белок"
                                         </div>
@@ -970,21 +1051,24 @@
 
 
                                         <div class="card-body">
-                                        <input type="submit"  class="btn btn-primary" value="Сохранить" >
+                                        <input type="submit"  class="btn btn-primary " value="Сохранить" >
+                                            {{analysis_fields_form.errors}}
                                         {% for message in messages %}
                                             <p class="mb-0">{{message}}</p>
                                         {% endfor %}
-                                    </div>
-                                    </form>
-                                    {%endif%}
+                                        </div>
+
+
 
                                 </div>
                             </div>
                         </div>
-
+</form>
                         <!-- /Row -->
                     </div>
+
                     <!-- CONTAINER CLOSED -->
+
                 </div>
             </div>
             <!--app-content closed-->

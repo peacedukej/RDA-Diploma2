@@ -87,7 +87,6 @@ class EditPassword(PasswordChangeForm):
 #         ]
 
 
-
 class NewAnalysis(forms.ModelForm):
     # user_id = forms.IntegerField()
     # analysis_id = forms.IntegerField()
@@ -142,7 +141,7 @@ class NewAnalysis(forms.ModelForm):
                                )
     )
 
-    #analysis_status =
+    # analysis_status =
 
     # date_of_analysis = forms.DateField(
     #    widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '...'})
@@ -157,21 +156,101 @@ class NewAnalysis(forms.ModelForm):
             'place_of_analysis',
             'analysis_user_name',
             # 'date_of_analysis',
-            #'analysis_status'
+            # 'analysis_status'
 
         ]
 
 
 class NewAnalysisFields(forms.ModelForm):
-    value = forms.CharField(
+    value_1 = forms.CharField(label='Показатель 1', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_2 = forms.CharField(label='Показатель 2', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_3 = forms.CharField(label='Показатель 3', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_4 = forms.CharField(label='Показатель 4', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_5 = forms.CharField(label='Показатель 5', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_6 = forms.CharField(label='Показатель 6', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_7 = forms.CharField(label='Показатель 7', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_8 = forms.CharField(label='Показатель 8', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_9 = forms.CharField(label='Показатель 9', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_10 = forms.CharField(label='Показатель 10', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_11 = forms.CharField(label='Показатель 11', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_12 = forms.CharField(label='Показатель 12', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_13 = forms.CharField(label='Показатель 13', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_14 = forms.CharField(label='Показатель 14', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_15 = forms.CharField(label='Показатель 15', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_16 = forms.CharField(label='Показатель 16', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_17 = forms.CharField(label='Показатель 17', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_18 = forms.CharField(label='Показатель 18', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_19 = forms.CharField(label='Показатель 19', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_20 = forms.CharField(label='Показатель 20', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_21 = forms.CharField(label='Показатель 21', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_22 = forms.CharField(label='Показатель 22', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_23 = forms.CharField(label='Показатель 23', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_24 = forms.CharField(label='Показатель 24', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_25 = forms.CharField(label='Показатель 25', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_26 = forms.CharField(label='Показатель 26', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_27 = forms.CharField(label='Показатель 27', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_28 = forms.CharField(label='Показатель 28', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_29 = forms.CharField(label='Показатель 28', required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
+    value_30 = forms.CharField(label='Показатель 30', required=False,
         widget=forms.TextInput(attrs={'class': 'form-control add-analysis-results', 'placeholder': 'abdfb'}))
 
+    # field_1, field_2, field_3, field_4, field_5, \
+    # field_6, field_7, field_8, field_9, field_10, \
+    # field_11, field_12, field_13, field_14, field_15, \
+    # field_16, field_17, field_18, field_19, field_20, \
+    # field_21, field_22, field_23, field_24, field_25, \
+    # field_26, field_27, field_28, field_29, field_30 = 'Показатель 1', 'Показатель 2', 'Показатель 3', 'Показатель 4', 'Показатель 5', \
+    #                                                    'Показатель 6', 'Показатель 7', 'Показатель 8', 'Показатель 9', 'Показатель 10', \
+    #                                                    'Показатель 11', 'Показатель 12', 'Показатель 13', 'Показатель 14', 'Показатель 15', \
+    #                                                    'Показатель 16', 'Показатель 17', 'Показатель 18', 'Показатель 19', 'Показатель 20', \
+    #                                                    'Показатель 21', 'Показатель 22', 'Показатель 23', 'Показатель 24', 'Показатель 25', \
+    #                                                    'Показатель 26', 'Показатель 27', 'Показатель 28', 'Показатель 29', 'Показатель 30'
     class Meta:
         model = AnalysisFields
 
         fields = [
-            # 'name',
-            'value',
+            'value_1', 'value_2', 'value_3', 'value_4', 'value_5',
+            'value_6', 'value_7', 'value_8', 'value_9', 'value_10',
+            'value_11', 'value_12', 'value_13', 'value_14', 'value_15',
+            'value_16', 'value_17', 'value_18', 'value_19', 'value_20',
+            'value_21', 'value_22', 'value_23', 'value_24', 'value_25',
+            'value_26', 'value_27', 'value_28', 'value_29', 'value_30',
+
+            # 'field_1', 'field_2', 'field_3', 'field_4', 'field_5',
+            # 'field_6', 'field_7', 'field_8', 'field_9', 'field_10',
+            # 'field_11', 'field_12', 'field_13', 'field_14', 'field_15',
+            # 'field_16', 'field_17', 'field_18', 'field_19', 'field_20',
+            # 'field_21', 'field_22', 'field_23', 'field_24', 'field_25',
+            # 'field_26', 'field_27', 'field_28', 'field_29', 'field_30',
         ]
 
 # class EditPassword(ModelForm):
