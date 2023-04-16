@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../static/assets/images/brand/favicon.ico" />
 
     <!-- TITLE -->
-    <title>Документы</title>
+    <title>Sash – Bootstrap 5 Admin & Dashboard Template</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="../static/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -33,9 +33,316 @@
     <!-- COLOR SKIN CSS -->
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="../static/assets/colors/color1.css" />
 
+    <!-- INTERNAL Switcher css -->
+    <link href="../static/assets/switcher/css/switcher.css" rel="stylesheet" />
+    <link href="../static/assets/switcher/demo.css" rel="stylesheet" />
+
+
 </head>
 
 <body class="app sidebar-mini ltr light-mode">
+
+    <!-- Switcher -->
+    <div class="switcher-wrapper">
+        <div class="demo_changer">
+            <div class="form_holder sidebar-right1">
+                <div class="row">
+                    <div class="predefined_styles">
+                        <div class="swichermainleft text-center">
+                            <div class="p-3 d-grid gap-2">
+                                <a href="../../index.html" class="btn ripple btn-primary mt-0">View Demo</a>
+                                <a href="https://themeforest.net/item/sash-bootstrap-5-admin-dashboard-template/35183671" class="btn ripple btn-secondary">Buy Now</a>
+                                <a href="https://themeforest.net/user/spruko/portfolio" class="btn ripple btn-pink">Our Portfolio</a>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Navigation Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Vertical Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch15" id="myonoffswitch34" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch34" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Horizontal Click Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch15" id="myonoffswitch35" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch35" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Horizontal Hover Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch15" id="myonoffswitch111" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch111" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>LTR and RTL VERSIONS</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">LTR Version</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch7" id="myonoffswitch23" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch23" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">RTL Version</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch7" id="myonoffswitch24" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch24" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Light Theme Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Light Theme</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch1" id="myonoffswitch1" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch1" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Light Primary</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-color-picker color-primary-light" value="#6c5ffc" id="colorID" oninput="changePrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id7="transparentcolor" name="lightPrimary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Dark Theme Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Dark Theme</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch1" id="myonoffswitch2" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch2" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Dark Primary</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-dark-color-picker color-primary-dark" value="#6c5ffc" id="darkPrimaryColorID" oninput="darkPrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id3="primary" data-id8="transparentcolor"
+                                                name="darkPrimary">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Transparent Theme Style</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Transparent Theme</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch1" id="myonoffswitchTransparent" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitchTransparent" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Transparent Primary</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-transparent-color-picker color-primary-transparent" value="#6c5ffc" id="transparentPrimaryColorID" oninput="transparentPrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id3="primary"
+                                                data-id4="primary" data-id9="transparentcolor" name="tranparentPrimary">
+                                        </div>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Transparent Background</span>
+                                        <div class="">
+                                            <input class="w-30p h-30 input-transparent-color-picker color-bg-transparent" value="#6c5ffc" id="transparentBgColorID" oninput="transparentBgColor()" type="color" data-id5="body" data-id6="theme" data-id9="transparentcolor" name="transparentBackground">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Transparent Bg-Image Style</h4>
+                            <div class="skin-body switch_section">
+                                <div class="switch-toggle d-flex">
+                                    <span class="me-auto">Bg-Image Primary</span>
+                                    <div class="">
+                                        <input class="w-30p h-30 input-transparent-color-picker color-primary-transparent" value="#6c5ffc" id="transparentBgImgPrimaryColorID" oninput="transparentBgImgPrimaryColor()" type="color" data-id="bg-color" data-id1="bg-hover" data-id2="bg-border" data-id3="primary" data-id4="primary"  data-id9="transparentcolor" name="tranparentPrimary">
+                                    </div>
+                                </div>
+                                <div class="switch-toggle d-flex mt-2">
+                                    <a class="bg-img1" href="javascript:void(0);" onclick="bgImage(this)"><img src="../static/assets/images/media/bg-img1.jpg"  alt="Bg-Image" id="bgimage1"></a>
+                                    <a class="bg-img2" href="javascript:void(0);" onclick="bgImage(this)"><img src="../static/assets/images/media/bg-img2.jpg"  alt="Bg-Image"  id="bgimage2"></a>
+                                    <a class="bg-img3" href="javascript:void(0);" onclick="bgImage(this)"><img src="../static/assets/images/media/bg-img3.jpg"  alt="Bg-Image" id="bgimage3"></a>
+                                    <a class="bg-img4" href="javascript:void(0);" onclick="bgImage(this)"><img src="../static/assets/images/media/bg-img4.jpg"  alt="Bg-Image" id="bgimage4"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Menu Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle lightMenu d-flex">
+                                        <span class="me-auto">Light Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch3" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch3" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle colorMenu d-flex mt-2">
+                                        <span class="me-auto">Color Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch4" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch4" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle darkMenu d-flex mt-2">
+                                        <span class="me-auto">Dark Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch5" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch5" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle gradientMenu d-flex mt-2">
+                                        <span class="me-auto">Gradient Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch19" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch19" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Header Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle lightHeader d-flex">
+                                        <span class="me-auto">Light Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch6" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch6" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle  colorHeader d-flex mt-2">
+                                        <span class="me-auto">Color Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch7" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch7" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle darkHeader d-flex mt-2">
+                                        <span class="me-auto">Dark Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch8" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch8" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+
+                                    <div class="switch-toggle darkHeader d-flex mt-2">
+                                        <span class="me-auto">Gradient Header</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch20" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch20" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Layout Width Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Full Width</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch4" id="myonoffswitch9" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch9" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Boxed</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch4" id="myonoffswitch10" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch10" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Layout Positions</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Fixed</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch5" id="myonoffswitch11" class="onoffswitch2-checkbox" checked>
+                                            <label for="myonoffswitch11" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Scrollable</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch5" id="myonoffswitch12" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch12" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft leftmenu-styles">
+                            <h4>Sidemenu layout Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section">
+                                    <div class="switch-toggle d-flex">
+                                        <span class="me-auto">Default Menu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch13" class="onoffswitch2-checkbox default-menu" checked>
+                                            <label for="myonoffswitch13" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Icon with Text</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch14" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch14" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Icon Overlay</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch15" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch15" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Closed Sidemenu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch16" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch16" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Hover Submenu</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch17" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch17" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                    <div class="switch-toggle d-flex mt-2">
+                                        <span class="me-auto">Hover Submenu Style 1</span>
+                                        <p class="onoffswitch2"><input type="radio" name="onoffswitch6" id="myonoffswitch18" class="onoffswitch2-checkbox">
+                                            <label for="myonoffswitch18" class="onoffswitch2-label"></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swichermainleft">
+                            <h4>Reset All Styles</h4>
+                            <div class="skin-body">
+                                <div class="switch_section my-4">
+                                    <button class="btn btn-danger btn-block" onclick="localStorage.clear();
+										document.querySelector('html').style = '';
+										names() ;
+                                        resetData() ;" type="button">Reset All
+									</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Switcher -->
 
     <!-- GLOBAL-LOADER -->
     <div id="global-loader">
@@ -330,13 +637,12 @@
                                 <a class="side-menu__item has-link" data-bs-toggle="slide" href="../analysis"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Анализы и обследования</span></a>
                             </li>
 
-
                             <li class="sub-category">
                                 <h3>Активность заболевания</h3>
                             </li>
 
                             <li class="slide">
-                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="../statistics-page"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Статистика</span></a>
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="edit_account.html"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Статистика</span></a>
                             </li>
 
                             <li class="slide">
@@ -358,441 +664,34 @@
 
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Обзор файлов</h1>
+                            <h1 class="page-title">Добавить новый анализ или результат исследования</h1>
+                            <div>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Empty</li>
+                                </ol>
+                            </div>
                         </div>
                         <!-- PAGE-HEADER END -->
 
+                        <!-- ROW-1 OPEN -->
                         <!-- Row -->
-                        <div class="row row-sm">
-                            <div class="col-md-5 col-lg-5 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <button class="btn btn-primary btn-block" data-bs-target="#createfile" data-bs-toggle="modal"><i class="fe fe-plus me-1"></i> Добавить новый файл</button>
-                                    </div>
-                                    <div class="card-body pt-4">
-                                        <div class="list-group list-group-transparent mb-0 file-manager">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="list-group-item  d-flex align-items-center px-0">
-                                                        <i class="fe fe-image fs-18 me-2 text-success p-2"></i>Изображения
-                                                    </a>
-                                                </div>
-                                                <div class="text-end ms-auto mt-3">
-                                                    <span class="fs-11  text-dark">20 MB</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress progress-xs mb-3 ms-2">
-                                                <div class="progress-bar bg-green" style="width: 30%;"></div>
-                                            </div>
 
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="list-group-item  d-flex align-items-center px-0">
-                                                        <i class="fe fe-file-text fs-18 me-2 text-primary p-2"></i> Документы
-                                                    </a>
-                                                </div>
-                                                <div class="text-end ms-auto mt-3">
-                                                    <span class="fs-11  text-dark">14.2 MB</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress progress-xs mb-3 ms-2">
-                                                <div class="progress-bar bg-primary" style="width: 25%;"></div>
-                                            </div>
-
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="list-group-item  d-flex align-items-center px-0">
-                                                        <i class="fe fe-grid fs-18 me-2 text-danger p-2"></i> Другое
-                                                    </a>
-                                                </div>
-                                                <div class="text-end ms-auto mt-3">
-                                                    <span class="fs-11  text-dark">23 MB</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress progress-xs mb-3 ms-2">
-                                                <div class="progress-bar bg-danger" style="width: 45%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="d-flex">
-                                            <a href="javascript:void(0)" class="file-manager-image"><img src="../static/assets/images/media/folder1.png" alt="img"></a>
-                                            <h3 class="ms-3 mt-5 fw-semibold">467 Файлов</h3>
-                                            <div class="ms-5 ms-auto">
-                                                <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fe fe-more-vertical fs-18"></i>
-                                                </a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="javascript:void(0)">Internal Storage</a></li>
-                                                    <li><a href="javascript:void(0)">External Storage</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-xs mb-3">
-                                            <div class="progress-bar bg-warning" style="width: 60%;"></div>
-                                        </div>
-                                        <div class="">
-                                            <div class="d-flex">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h6 class="mt-2"><i class="fe fe-circle text-success fs-12"></i> Total Storage</h6>
-                                                        <span class="text-muted">128 GB</span>
-                                                    </div>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <h6 class="mt-2"><i class="fe fe-circle text-danger fs-12"></i> Used</h6>
-                                                    <span class="text-muted">100 GB</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-7 col-lg-7 col-xl-9">
-                                <div class="row row-sm">
-                                    <div class="text-dark mb-2 ms-1 fs-20 fw-semibold">Папки</div>
+                                        <h5 class="h5 mb-2"><b>Введите название документа</b></h5>
 
-                                    <div class="col-xl-3 col-md-6 col-sm-6">
-                                        <div class="card pos-relative">
-                                            <a href="filemanager-list.html" class="open-file"></a>
-                                            <div class="card-body px-4 pt-4 pb-2">
-                                                <div class="d-flex">
-                                                    <span class="bg-warning-transparent border border-warning brround">
-                                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                                            <path fill="#f7b731" d="M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19A2,2 0 0,1 21,8H21L4,8V18L6.14,10H23.21L20.93,18.5C20.7,19.37 19.92,20 19,20Z" />
-                                                        </svg>
-                                                    </span>
-                                                    <div class="ms-auto mt-1 file-dropdown">
-                                                        <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Изменить</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Поделиться</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Скачать</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Удалить</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-0">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="text-warning">PDF</h5>
-                                                        <p class="text-muted fs-13 mb-0">25 Файлов</p>
-                                                    </div>
-                                                    <div class="ms-auto mt-4">
-                                                        <h6 class="">15 MB</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-6">
-                                        <div class="card pos-relative">
-                                            <a href="filemanager-list.html" class="open-file"></a>
-                                            <div class="card-body px-4 pt-4 pb-2">
-                                                <div class="d-flex">
-                                                    <span class="bg-secondary-transparent border border-secondary brround">
-                                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                                            <path fill="#05c3fb" d="M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6M15,16H6V14H15V16M18,12H6V10H18V12Z" />
-                                                        </svg>
-                                                    </span>
-                                                    <div class="ms-auto mt-1 file-dropdown">
-                                                        <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Изменить</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Поделиться</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Скачать</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Удалить</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-0">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="text-secondary">DOC</h5>
-                                                        <p class="text-muted fs-13 mb-0">25 Файлов</p>
-                                                    </div>
-                                                    <div class="ms-auto mt-4">
-                                                        <h6 class="">15 MB</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-6">
-                                        <div class="card pos-relative">
-                                            <a href="filemanager-list.html" class="open-file"></a>
-                                            <div class="card-body px-4 pt-4 pb-2">
-                                                <div class="d-flex">
-                                                    <span class="bg-danger-transparent border border-orange brround">
-                                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                                            <path fill="#fc7303" d="M5,17L9.5,11L13,15.5L15.5,12.5L19,17M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6Z" />
-                                                        </svg>
-                                                    </span>
-                                                    <div class="ms-auto mt-1 file-dropdown">
-                                                        <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Изменить</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Поделиться</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Скачать</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Удалить</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-0">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="text-orange">Изображения</h5>
-                                                        <p class="text-muted fs-13 mb-0">21 файл</p>
-                                                    </div>
-                                                    <div class="ms-auto mt-4">
-                                                        <h6 class="">19 MB</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                 </div>
-                                <div class="text-dark mb-2 ms-1 fs-20 fw-semibold">Файлы</div>
-                                <div class="row row-sm">
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/pdf.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">file.pdf</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">32 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/07.jpg" alt="img" class="w-100 file-manager-list" ></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">image1.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">76 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/excel.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">excel.xls</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">34 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/06.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">nature.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">66 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/ppt1.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">demo.ppt</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">67 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/file-video.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">video.mp4</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto mt-3">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/word.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">word.doc</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/01.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">mountain.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/pdf.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">file.pdf</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">32 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/excel.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">excel.xls</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">34 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/02.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="d-flex">
-                                                        <h5 class="mb-0 fw-semibold text-break">image1.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">76 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/ppt1.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">profile.ppt</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">67 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/04.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">image2.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">66 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/05.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">nature.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">66 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/zip1.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">exe.zip</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- End Row -->
                         </div>
-                        <!-- End Row -->
+
+                        <!-- /Row -->
                     </div>
+
                     <!-- CONTAINER CLOSED -->
 
                 </div>
@@ -1300,28 +1199,6 @@
         </div>
         <!-- Country-selector modal-->
 
-        <!-- Modal -->
-        <div class="modal" id="createfile">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content modal-content-demo">
-                    <div class="modal-header">
-                        <h6 class="modal-title">Нажмите, чтобы выбрать файл, или перетащите его в окошко</h6>
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            <input id="demo" type="file" name="files" accept="image/jpeg, image/png, text/html, application/zip, text/css, text/js" multiple>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn ripple btn-primary" type="button">Загрузить</button>
-                        <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Отмена</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal -->
-
         <!-- FOOTER -->
         <footer class="footer">
             <div class="container">
@@ -1335,7 +1212,7 @@
         <!-- FOOTER CLOSED -->
     </div>
 
-    <!-- BACK-TO-TOP -->
+<!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
     <!-- JQUERY JS -->
@@ -1345,8 +1222,8 @@
     <script src="../static/assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- SIDEBAR JS -->
-    <script src="../static/assets/plugins/sidebar/sidebar.js"></script>
+    <!-- INPUT MASK JS-->
+    <script src="../static/assets/plugins/input-mask/jquery.mask.min.js"></script>
 
     <!-- SIDE-MENU JS -->
     <script src="../static/assets/plugins/sidemenu/sidemenu.js"></script>
@@ -1355,12 +1232,15 @@
 	<script src="../static/assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
     <script src="../static/assets/js/typehead.js"></script>
 
-    <!-- INTERNAL File-Uploads Js-->
-    <script src="../static/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+    <!-- SIDEBAR JS -->
+    <script src="../static/assets/plugins/sidebar/sidebar.js"></script>
+
+    <!-- SHOW PASSWORD JS -->
+    <script src="../static/assets/js/show-password.min.js"></script>
+
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="../static/assets/plugins/select2/select2.full.min.js"></script>
+    <script src="../static/assets/js/select2.js"></script>
 
     <!-- Perfect SCROLLBAR JS-->
     <script src="../static/assets/plugins/p-scroll/perfect-scrollbar.js"></script>
@@ -1373,9 +1253,10 @@
     <!-- Sticky js -->
     <script src="../static/assets/js/sticky.js"></script>
 
-    <!-- CUSTOM JS-->
+    <!-- CUSTOM JS -->
     <script src="../static/assets/js/custom.js"></script>
 
+<!--    <script src="../static/assets/js/analys-type-form.js"></script>-->
 
 </body>
 

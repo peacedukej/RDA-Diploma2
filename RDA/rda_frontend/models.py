@@ -164,6 +164,7 @@ class Analysis(models.Model):
 
 class AnalysisFields(models.Model):
     #analysis_id = models.OneToOneField(Analysis, on_delete=models.CASCADE, primary_key=True)
+
     analysis_id = models.IntegerField(primary_key=True)
     analysis_type = models.CharField(max_length=50, null=True)
 

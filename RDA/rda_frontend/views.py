@@ -103,7 +103,9 @@ def documents_page(request):
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')
 def analysis_page(request):
-    return render(request, 'rda_frontend/analysis.html')
+    db_analysis = Analysis.objects.filter(user_id=request.user.id)
+    context = {'db_analysis': db_analysis}
+    return render(request, 'rda_frontend/analysis.html', context)
 
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')
@@ -119,32 +121,21 @@ def add_analysis_page(request):
         analysis_fields_form = NewAnalysisFields(request.POST)
 
         if analysis_info_form.is_valid() and analysis_fields_form.is_valid():
-            analysis_info = analysis_info_form.save()  # Сохраняем analysis_info_form и получаем объект
-
-
-            Analysis.objects.update(user_id=request.user.id)
-            analysis_id = analysis_info.analysis_id
-
-            analysis_fields_form.save()
-            AnalysisFields.objects.update(analysis_id=analysis_id)  # Передаем analysis_id в update()
-
-
-
-            # analysis_info_form.save()
+            # analysis_info = analysis_info_form.save()  # Сохраняем analysis_info_form и получаем объект
             # Analysis.objects.update(user_id=request.user.id)
-            #
-            # AnalysisFields.objects.update(analysis_id=request.POST('analysis_id'))
             # analysis_fields_form.save()
+            # get_analysis_id = analysis_info.analysis_id
+            # AnalysisFields.objects.update(analysis_id=get_analysis_id)  # Передаем analysis_id в update()
 
+            analysis_info = analysis_info_form.save(
+                commit=False)  # Устанавливаем commit=False, чтобы отложить сохранение
+            analysis_info.user_id = request.user.id  # Устанавливаем значение user_id
+            analysis_info.save()  # Сохраняем analysis_info_form и получаем объект
 
-
-
-            #AnalysisFields.objects.update(analysis_id=analysis_info_form.cleaned_data.get('analysis_id'))
-
-
-# переписать: создавать объект анализа при нажатии на кнопку добавить анализ
-            # здесь переписать как в edit password
-            # если не нажата кнопка сохранить, то удалять??? как
+            analysis_fields = analysis_fields_form.save(
+                commit=False)  # Устанавливаем commit=False, чтобы отложить сохранение
+            analysis_fields.analysis_id = analysis_info.analysis_id  # Устанавливаем значение analysis_id
+            analysis_fields.save()  # Сохраняем analysis_fields_form
 
             #Analysis.objects.update(analysis_status='In process')
             #Analysis.objects.update(analysis_id=10000+int(get_id))
@@ -155,6 +146,22 @@ def add_analysis_page(request):
     #    form = NewAnalysis(request.POST)
     context = {'analysis_info_form': analysis_info_form, 'analysis_fields_form': analysis_fields_form}
     return render(request, 'rda_frontend/add-analysis.html', context)
+
+
+@login_required(login_url='../login', )
+@user_passes_test(check_access_group, login_url='../account')
+def statistics_page(request):
+    return render(request, 'rda_frontend/statistics-page.html')
+
+
+
+
+
+
+
+
+
+
 
 
 # def add_analysis_values(request):
