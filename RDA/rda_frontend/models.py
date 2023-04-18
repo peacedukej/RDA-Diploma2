@@ -167,96 +167,36 @@ class AnalysisFields(models.Model):
 
     analysis_id = models.IntegerField(primary_key=True, verbose_name='ID Анализа')
     analysis_type = models.CharField(max_length=50, null=True, verbose_name='Тип анализа')
-
-    #field_1 = models.CharField(max_length=30, null=True)
-    value_1 = models.CharField(max_length=15, null=True, verbose_name='Показатель 1')
-
-    #field_2 = models.CharField(max_length=30, null=True)
-    value_2 = models.CharField(max_length=15, null=True, verbose_name='Показатель 2')
-
-    #field_3 = models.CharField(max_length=30, null=True)
-    value_3 = models.CharField(max_length=15, null=True)
-
-    #field_4 = models.CharField(max_length=30, null=True)
-    value_4 = models.CharField(max_length=15, null=True)
-
-    #field_5 = models.CharField(max_length=30, null=True)
-    value_5 = models.CharField(max_length=15, null=True)
-
-    #field_6 = models.CharField(max_length=30, null=True)
-    value_6 = models.CharField(max_length=15, null=True)
-
-    #field_7 = models.CharField(max_length=30, null=True)
-    value_7 = models.CharField(max_length=15, null=True)
-
-    #field_8 = models.CharField(max_length=30, null=True)
-    value_8 = models.CharField(max_length=15, null=True)
-
-    #field_9 = models.CharField(max_length=30, null=True)
-    value_9 = models.CharField(max_length=15, null=True)
-
-    #field_10 = models.CharField(max_length=30, null=True)
-    value_10 = models.CharField(max_length=15, null=True)
-
-    #field_11 = models.CharField(max_length=30, null=True)
-    value_11 = models.CharField(max_length=15, null=True)
-
-    #field_12 = models.CharField(max_length=30, null=True)
-    value_12 = models.CharField(max_length=15, null=True)
-
-    #field_13 = models.CharField(max_length=30, null=True)
-    value_13 = models.CharField(max_length=15, null=True)
-
-    #field_14 = models.CharField(max_length=30, null=True)
-    value_14 = models.CharField(max_length=15, null=True)
-
-    #field_15 = models.CharField(max_length=30, null=True)
-    value_15 = models.CharField(max_length=15, null=True)
-
-    #field_16 = models.CharField(max_length=30, null=True)
-    value_16 = models.CharField(max_length=15, null=True)
-
-    #field_17 = models.CharField(max_length=30, null=True)
-    value_17 = models.CharField(max_length=15, null=True)
-
-    #field_18 = models.CharField(max_length=30, null=True)
-    value_18 = models.CharField(max_length=15, null=True)
-
-    #field_19 = models.CharField(max_length=30, null=True)
-    value_19 = models.CharField(max_length=15, null=True)
-
-    #field_20 = models.CharField(max_length=30, null=True)
-    value_20 = models.CharField(max_length=15, null=True)
-
-    #field_21 = models.CharField(max_length=30, null=True)
-    value_21 = models.CharField(max_length=15, null=True)
-
-    #field_22 = models.CharField(max_length=30, null=True)
-    value_22 = models.CharField(max_length=15, null=True)
-
-    #field_23 = models.CharField(max_length=30, null=True)
-    value_23 = models.CharField(max_length=15, null=True)
-
-    #field_24 = models.CharField(max_length=30, null=True)
-    value_24 = models.CharField(max_length=15, null=True)
-
-    #field_25 = models.CharField(max_length=30, null=True)
-    value_25 = models.CharField(max_length=15, null=True)
-
-    #field_26 = models.CharField(max_length=30, null=True)
-    value_26 = models.CharField(max_length=15, null=True)
-
-    #field_27 = models.CharField(max_length=30, null=True)
-    value_27 = models.CharField(max_length=15, null=True)
-
-   # field_28 = models.CharField(max_length=30, null=True)
-    value_28 = models.CharField(max_length=15, null=True)
-
-   # field_29 = models.CharField(max_length=30, null=True)
-    value_29 = models.CharField(max_length=15, null=True)
-
-   # field_30 = models.CharField(max_length=30, null=True)
-    value_30 = models.CharField(max_length=15, null=True)
+    value_1 = models.CharField(max_length=15, null=True, verbose_name='Показатель 1', default='Null')
+    value_2 = models.CharField(max_length=15, null=True, verbose_name='Показатель 2', default='Null')
+    value_3 = models.CharField(max_length=15, null=True, default='Null')
+    value_4 = models.CharField(max_length=15, null=True, default='Null')
+    value_5 = models.CharField(max_length=15, null=True, default='Null')
+    value_6 = models.CharField(max_length=15, null=True, default='Null')
+    value_7 = models.CharField(max_length=15, null=True, default='Null')
+    value_8 = models.CharField(max_length=15, null=True, default='Null')
+    value_9 = models.CharField(max_length=15, null=True, default='Null')
+    value_10 = models.CharField(max_length=15, null=True, default='Null')
+    value_11 = models.CharField(max_length=15, null=True, default='Null')
+    value_12 = models.CharField(max_length=15, null=True, default='Null')
+    value_13 = models.CharField(max_length=15, null=True, default='Null')
+    value_14 = models.CharField(max_length=15, null=True, default='Null')
+    value_15 = models.CharField(max_length=15, null=True, default='Null')
+    value_16 = models.CharField(max_length=15, null=True, default='Null')
+    value_17 = models.CharField(max_length=15, null=True, default='Null')
+    value_18 = models.CharField(max_length=15, null=True, default='Null')
+    value_19 = models.CharField(max_length=15, null=True, default='Null')
+    value_20 = models.CharField(max_length=15, null=True, default='Null')
+    value_21 = models.CharField(max_length=15, null=True, default='Null')
+    value_22 = models.CharField(max_length=15, null=True, default='Null')
+    value_23 = models.CharField(max_length=15, null=True, default='Null')
+    value_24 = models.CharField(max_length=15, null=True, default='Null')
+    value_25 = models.CharField(max_length=15, null=True, default='Null')
+    value_26 = models.CharField(max_length=15, null=True, default='Null')
+    value_27 = models.CharField(max_length=15, null=True, default='Null')
+    value_28 = models.CharField(max_length=15, null=True, default='Null')
+    value_29 = models.CharField(max_length=15, null=True, default='Null')
+    value_30 = models.CharField(max_length=15, null=True, default='Null')
 
     #
     # class Meta:

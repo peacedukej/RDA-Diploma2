@@ -117,32 +117,91 @@ def get_analysis_data(request):
         try:
             # Выполнение запроса в базу данных для получения объекта AnalysisFields по analysis_id
             analysis = AnalysisFields.objects.get(analysis_id=analysis_id)
-            column_names = [field.verbose_name for field in analysis._meta.fields]
+            column_names = [field.verbose_name for field in analysis._meta.fields if getattr(analysis, field.name) is not None and getattr(analysis, field.name) != '' and getattr(analysis, field.name) != 'Null']
+            column_values = [getattr(analysis, field.name) for field in analysis._meta.fields]
+
+            #column_names = [name for name in column_names if name.value is not None and name.value != '' and name.value != 'Null']
+            column_values = [value for value in column_values if value is not None and value != '' and value != 'Null']
+
             # Создание словаря с данными анализа
             data = {
-                'analysis_type': analysis.analysis_type,
-                'value_1': analysis.value_1,
-                #'label_1': analysis.value_1.get_attname_column(),
-                'value_2': analysis.value_2,
-                'value_3': analysis.value_3,
-                'value_4': analysis.value_4,
-                'value_5': analysis.value_5,
-                'value_6': analysis.value_6,
-                'value_7': analysis.value_7,
-                'value_8': analysis.value_8,
-                'value_9': analysis.value_9,
-                'value_10': analysis.value_10,
+                'column_values': column_values,
                 'column_names': column_names,
             }
 
             # Удаление пустых значений из словаря
-            data = {key: value for key, value in data.items() if value is not None}
+            # data = {key: value for key, value in data.items() if value is not None}
+            # data = {key: value for key, value in data.items() if value is not None and value != '' and value != 'Null'}
 
             return JsonResponse(data)  # Возвращение данных в JSON-формате
         except AnalysisFields.DoesNotExist:
             return JsonResponse({'error': 'Анализ с указанным ID не найден'})  # Обработка случая, если анализ не найден
     else:
         return JsonResponse({'error': 'Некорректный метод запроса'})  # Обработка случая, если запрос не GET
+
+
+def get_user_id(request):
+    if request.method == 'GET':
+        user_id = request.user.id
+        return JsonResponse({'user_id': user_id})
+    else:
+        return JsonResponse({'error': 'Not an AJAX request'})
+
+
+
+def get_analysis_for_stat(request):
+    if request.method == 'GET':
+        user_id = request.GET.get('user_id')
+        try:
+            # Выполнение запроса в базу данных для получения объекта Analysis по analysis_id
+            analysis = Analysis.objects.filter(user_id=user_id).values_list('analysis_type', flat=True).distinct()
+            analysis_types = list(analysis)
+            data = {
+                'analysis_types': analysis_types
+            }
+            return JsonResponse(data)  # Возвращение данных в JSON-формате
+        except Analysis.DoesNotExist:
+            return JsonResponse({'error': 'Анализ с указанным ID не найден'})  # Обработка случая, если анализ не найден
+    else:
+        return JsonResponse({'error': 'Некорректный метод запроса'})  # Обработка случая, если запрос не GET
+
+
+def get_analysis_id(request):
+    if request.method == 'GET':
+        analysis_type = request.GET.get("option")
+        try:
+            # Получаем параметр option из Ajax-запроса
+
+            # Ищем все analysis_id, которые относятся к данному analysis_type
+            analysis_ids = Analysis.objects.filter(analysis_type=analysis_type).values_list('analysis_id', flat=True)
+            # Конвертируем QuerySet в список и отдаем их в JSON-формате
+            analysis_list = list(analysis_ids)
+            data = {
+                'analysis_list': analysis_list
+            }
+            return JsonResponse(data)
+        except Analysis.DoesNotExist:
+            return JsonResponse({'error': 'Анализ с указанным ID не найден'})  # Обработка случая, если анализ не найден
+    else:
+        return JsonResponse({'error': 'Некорректный метод запроса'})  # Обработка случая, если запрос не GET
+
+
+def create_stat(request):
+    if request.method == 'GET':
+        user_id = request.GET.get('user_id')
+        try:
+            # Выполнение запроса в базу данных для получения объекта Analysis по analysis_id
+            analysis = Analysis.objects.filter(user_id=user_id).values_list('analysis_type', flat=True).distinct()
+            analysis_types = list(analysis)
+            data = {
+                'analysis_types': analysis_types
+            }
+            return JsonResponse(data)  # Возвращение данных в JSON-формате
+        except Analysis.DoesNotExist:
+            return JsonResponse({'error': 'Анализ с указанным ID не найден'})  # Обработка случая, если анализ не найден
+    else:
+        return JsonResponse({'error': 'Некорректный метод запроса'})  # Обработка случая, если запрос не GET
+
 
 
 @login_required(login_url='../login', )
@@ -173,6 +232,7 @@ def add_analysis_page(request):
             analysis_fields = analysis_fields_form.save(
                 commit=False)  # Устанавливаем commit=False, чтобы отложить сохранение
             analysis_fields.analysis_id = analysis_info.analysis_id  # Устанавливаем значение analysis_id
+            analysis_fields.analysis_type = analysis_info.analysis_type  # Устанавливаем значение analysis_id
             analysis_fields.save()  # Сохраняем analysis_fields_form
 
             #Analysis.objects.update(analysis_status='In process')

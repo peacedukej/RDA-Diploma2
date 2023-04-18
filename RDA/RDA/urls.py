@@ -33,5 +33,9 @@ urlpatterns = [
     path('add analysis/', views.add_analysis_page),
     path('statistics-page', views.statistics_page),
     path('get_analysis_data/', views.get_analysis_data, name='get_analysis_data'),
+    path('get_analysis_for_stat/', views.get_analysis_for_stat, name='get_analysis_for_stat'),
+    path('get_user_id/', views.get_user_id, name='get_user_id'),
+    path('create_stat/', views.create_stat, name='create_stat'),
+    path('get_analysis_id/', views.get_analysis_id, name='get_analysis_id'),
     # path('add analysis/', views.add_analysis_values),
 ]

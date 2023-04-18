@@ -453,35 +453,27 @@
                                     data: {analysis_id: analysisId},  // Передаем параметры на сервер (в данном случае analysis_id)
                                     success: function(data) {
                                     var columnNames = data.column_names.join('</th><th>');
+                                    var columnValues = data.column_values.join('</th><th>');
                                         // Получаем данные в формате JSON и обновляем содержимое таблицы на странице
                                         $('#analysisModalBody').html(`
-                                            <table class="table">
+                                            <div class="table-responsive">
+                                            <div class="dataTables_wrapper dt-bootstrap5 no-footer " id="basic-datatable_wrapper">
+                                                <div class="row">
+                                                <table class="table table-bordered text-nowrap border-bottom dataTable no-footer" id="basic-datatable" role="grid" aria-describedby="basic-datatable_info">
                                                 <thead>
-                                                    <tr>
+                                                    <tr role="row">
                                                         <th>${columnNames}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>${data.analysis_type}</td>
-                                                        <td>${data.value_1}</td>
-                                                        <td>${data.value_2}</td>
-                                                        <td>${data.value_3}</td>
-                                                        <td>${data.value_4}</td>
-                                                        <td>${data.value_5}</td>
-                                                        <td>${data.value_6}</td>
-                                                        <td>${data.value_7}</td>
-                                                        <td>${data.value_8}</td>
-                                                        <td>${data.value_9}</td>
-                                                        <td>${data.value_10}</td>
-                                                        <td>${data.value_11}</td>
-                                                        <td>${data.value_12}</td>
-                                                        <td>${data.value_13}</td>
-                                                        <td>${data.value_14}</td>
-                                                        <td>${data.value_15}</td>
+                                                    <tr role="row">
+                                                        <th>${columnValues}</th>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                                </table>
+                                                </div>
+                                                </div>
+                                            </div>
                                         `);
                                     },
                                     error: function(xhr, status, error) {
@@ -505,7 +497,7 @@
             </div>
 
 
-            <div class="modal-body" id="analysisModalBody">
+            <div class="modal-body swap_row_and_col" id="analysisModalBody">
 
 
 <!--                             <table class="table">-->

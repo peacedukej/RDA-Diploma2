@@ -36,6 +36,10 @@
     <!-- INTERNAL Switcher css -->
     <link href="../static/assets/switcher/css/switcher.css" rel="stylesheet" />
     <link href="../static/assets/switcher/demo.css" rel="stylesheet" />
+        <script src="../static/assets/js/jquery.min.js"></script>
+        <script src="../static/assets/plugins/input-mask/jquery.mask.min.js"></script>
+    <script src="../static/assets/js/getUserId.js"></script>
+    <script src="../static/assets/js/getAnalysisId.js"></script>
 
 
 </head>
@@ -706,51 +710,39 @@
 
                                     </div>
                                 </div>
+
+                                <script src="../static/assets/js/getUserId.js"></script>
+
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-lg-1">
                                                 <h5 class="h5 mb-2"><b>Тип анализа: </b></h5>
                                             </div>
-                                            <div class="col-lg-2">
-                                                Список тип анализа
+                                            <div class="col-lg-3" id="availableOptions">
+
                                             </div>
                                         </div>
-<br>
+                                        <br>
                                         <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <h5 class="h5 mb-2"><b>Период</b></h5>
-                                                    </div>
+                                            <div class="col-lg-1">
 
-                                                    <div class="col-lg-1">
-                                                        <h5 class="h5 mb-2"><b>с </b></h5>
-                                                    </div>
+                                                <input type="submit"  class="btn btn-primary float-end" value="Сформировать статистику">
 
-                                                    <div class="col-lg-2">
-                                                        дата1
-                                                    </div>
-
-                                                    <div class="col-lg-1">
-                                                        <h5 class="h5 mb-2"><b>по </b></h5>
-                                                    </div>
-
-                                                    <div class="col-lg-2">
-                                                        по дата2
-                                                    </div>
-
-                                                </div>
                                             </div>
-
                                         </div>
-
-
-
-
 
                                     </div>
-                                    <div class="card-body">Здесь будет отображена статистика</div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            Здесь будет отображена статистика
+                                        </div>
+                                        <div class="row" id="results">
+dsds
+                                        </div>
+                                    </div>
+
 
                                 </div>
 
