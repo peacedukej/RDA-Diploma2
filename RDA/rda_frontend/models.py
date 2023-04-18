@@ -165,14 +165,14 @@ class Analysis(models.Model):
 class AnalysisFields(models.Model):
     #analysis_id = models.OneToOneField(Analysis, on_delete=models.CASCADE, primary_key=True)
 
-    analysis_id = models.IntegerField(primary_key=True)
-    analysis_type = models.CharField(max_length=50, null=True)
+    analysis_id = models.IntegerField(primary_key=True, verbose_name='ID Анализа')
+    analysis_type = models.CharField(max_length=50, null=True, verbose_name='Тип анализа')
 
     #field_1 = models.CharField(max_length=30, null=True)
-    value_1 = models.CharField(max_length=15, null=True)
+    value_1 = models.CharField(max_length=15, null=True, verbose_name='Показатель 1')
 
     #field_2 = models.CharField(max_length=30, null=True)
-    value_2 = models.CharField(max_length=15, null=True)
+    value_2 = models.CharField(max_length=15, null=True, verbose_name='Показатель 2')
 
     #field_3 = models.CharField(max_length=30, null=True)
     value_3 = models.CharField(max_length=15, null=True)

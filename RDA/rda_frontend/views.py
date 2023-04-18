@@ -117,11 +117,12 @@ def get_analysis_data(request):
         try:
             # Выполнение запроса в базу данных для получения объекта AnalysisFields по analysis_id
             analysis = AnalysisFields.objects.get(analysis_id=analysis_id)
-
+            column_names = [field.verbose_name for field in analysis._meta.fields]
             # Создание словаря с данными анализа
             data = {
                 'analysis_type': analysis.analysis_type,
                 'value_1': analysis.value_1,
+                #'label_1': analysis.value_1.get_attname_column(),
                 'value_2': analysis.value_2,
                 'value_3': analysis.value_3,
                 'value_4': analysis.value_4,
@@ -130,7 +131,8 @@ def get_analysis_data(request):
                 'value_7': analysis.value_7,
                 'value_8': analysis.value_8,
                 'value_9': analysis.value_9,
-                'value_10': analysis.value_10
+                'value_10': analysis.value_10,
+                'column_names': column_names,
             }
 
             # Удаление пустых значений из словаря

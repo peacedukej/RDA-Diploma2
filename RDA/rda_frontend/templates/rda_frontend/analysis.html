@@ -452,23 +452,13 @@
                                     url: '/get_analysis_data/',  // Укажите URL-путь к вашему Django-виду представления
                                     data: {analysis_id: analysisId},  // Передаем параметры на сервер (в данном случае analysis_id)
                                     success: function(data) {
+                                    var columnNames = data.column_names.join('</th><th>');
                                         // Получаем данные в формате JSON и обновляем содержимое таблицы на странице
                                         $('#analysisModalBody').html(`
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Тип анализа</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>${data.value_1.lavel}</th>
-                                                        <th>Значение 2</th>
+                                                        <th>${columnNames}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -476,6 +466,19 @@
                                                         <td>${data.analysis_type}</td>
                                                         <td>${data.value_1}</td>
                                                         <td>${data.value_2}</td>
+                                                        <td>${data.value_3}</td>
+                                                        <td>${data.value_4}</td>
+                                                        <td>${data.value_5}</td>
+                                                        <td>${data.value_6}</td>
+                                                        <td>${data.value_7}</td>
+                                                        <td>${data.value_8}</td>
+                                                        <td>${data.value_9}</td>
+                                                        <td>${data.value_10}</td>
+                                                        <td>${data.value_11}</td>
+                                                        <td>${data.value_12}</td>
+                                                        <td>${data.value_13}</td>
+                                                        <td>${data.value_14}</td>
+                                                        <td>${data.value_15}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
