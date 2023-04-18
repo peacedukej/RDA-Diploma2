@@ -5,7 +5,7 @@ $(function(e) {
     $('#datatable1').DataTable({
         responsive: true,
         language: {
-            searchPlaceholder: 'Search...',
+            searchPlaceholder: 'Поиск...',
             sSearch: '',
             lengthMenu: '_MENU_ items/page',
         }

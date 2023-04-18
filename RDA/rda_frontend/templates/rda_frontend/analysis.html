@@ -367,12 +367,17 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Загруженные анализы</h3>
-                                        <div class="col-lg-8"></div>
-                                        <a href="../add analysis"
+                                        <div class="col-lg-4">
+                                            <h3 class="card-title">Загруженные анализы</h3>
+                                        </div>
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-lg-4">
+                                            <a href="../add analysis"
                                            class="btn btn-primary float-end add-analysis-btn"
                                            target="_blank">
                                             <i class="fe fe-plus me-1"></i> Добавить новый анализ</a>
+                                        </div>
+
 
                                     </div>
                                     <div class="card-body">
@@ -397,7 +402,15 @@
                                                         <td>{{i.analysis_type}}</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
+                                                        <td class="text-center">
+                                                            <button class="btn btn-sm btn-outline-primary btn-analysis-details"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#extralargemodal"
+                                                                    data-analysis-id="{{i.analysis_id}}"
+
+                                                                    type="button">Открыть значения</button>
+
+                                                        </td>
                                                     </tr>
 
                                                         {% endfor %}
@@ -413,26 +426,163 @@
                         <!-- End Row -->
 
                         <!-- Modal -->
-        <div class="modal" id="createfile">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content modal-content-demo">
-                    <div class="modal-header">
-                        <h6 class="modal-title">Нажмите, чтобы выбрать файл, или перетащите его в окошко</h6>
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            <input id="demo" type="file" name="files" accept="image/jpeg, image/png, text/html, application/zip, text/css, text/js" multiple>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn ripple btn-primary" type="button">Загрузить</button>
-                        <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Отмена</button>
-                    </div>
-                </div>
+<div class="modal fade" id="extralargemodal" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+
+
+<script>
+                                // JavaScript код, связанный с вашей страницей
+                            var analysisButtons = document.getElementsByClassName('btn-analysis-details');
+                            for (var i = 0; i < analysisButtons.length; i++) {
+                              analysisButtons[i].addEventListener('click', function(event) {
+                                // Получаем значение data-analysis-id кнопки
+                                var analysisId = event.target.getAttribute('data-analysis-id');
+                                // Обновляем заголовок всплывающего окна
+                                var modalTitle = document.getElementById('modal-title');
+                                modalTitle.innerText = 'Просмотр значений анализа №' + analysisId;
+
+
+
+                                //var analysisId = event.target.getAttribute('data-analysis-id');  // Значение analysis_id, переданное в функцию
+
+                                // Отправляем AJAX-запрос на сервер
+                                $.ajax({
+                                    type: 'GET',
+                                    url: '/get_analysis_data/',  // Укажите URL-путь к вашему Django-виду представления
+                                    data: {analysis_id: analysisId},  // Передаем параметры на сервер (в данном случае analysis_id)
+                                    success: function(data) {
+                                        // Получаем данные в формате JSON и обновляем содержимое таблицы на странице
+                                        $('#analysisModalBody').html(`
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Тип анализа</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>${data.value_1.lavel}</th>
+                                                        <th>Значение 2</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>${data.analysis_type}</td>
+                                                        <td>${data.value_1}</td>
+                                                        <td>${data.value_2}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        `);
+                                    },
+                                    error: function(xhr, status, error) {
+                                        // Обработка ошибок, если необходимо
+                                        console.error(error);
+                                    }
+                                });
+
+
+                              });
+                            }
+
+                            </script>
+
+                <div class="modal-header">
+
+                <h5 class="modal-title" id="modal-title"></h5>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
+
+
+            <div class="modal-body" id="analysisModalBody">
+
+
+<!--                             <table class="table">-->
+<!--                      <tbody>-->
+
+<!--                      </tbody>-->
+<!--                    </table>-->
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+
+
+
         </div>
+    </div>
+</div>
+<!--<div class="modal fade" id="extralargemodal" tabindex="-1" style="display: none;" aria-hidden="true">-->
+<!--        <div class="modal-dialog modal-xl" role="document">-->
+<!--            <div class="modal-content">-->
+
+
+
+
+<!--&lt;!&ndash;                <div class="modal-header">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <h5 class="modal-title">Просмотр значений анализа № </h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;							<span aria-hidden="true">×</span>&ndash;&gt;-->
+<!--&lt;!&ndash;						</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" id="modal-analysis-id">Просмотр значений анализа №</h5>-->
+<!--                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">×</span>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--                <div class="modal-body" id="modal-analysis-values">-->
+<!--                    <p>Сюда значения</p>-->
+<!--                </div>-->
+<!--&lt;!&ndash;                <div class="modal-body">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p>Сюда значения</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <div class="modal-footer">-->
+<!--                    <button class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>-->
+<!--                </div>-->
+
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--        <div class="modal" id="createfile">-->
+<!--            <div class="modal-dialog modal-xl" role="">-->
+<!--                <div class="modal-content modal-content-demo">-->
+
+<!--                    <div class="modal-header">-->
+<!--                        <h6 class="modal-title">Просмтр результатов анализа</h6>-->
+<!--                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>-->
+<!--                    </div>-->
+
+<!--                    <div class="modal-body">-->
+<!--                        <div>-->
+<!--                            Сюда результаты-->
+<!--&lt;!&ndash;                            <input id="demo" type="file" name="files" accept="image/jpeg, image/png, text/html, application/zip, text/css, text/js" multiple>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="modal-footer">-->
+<!--&lt;!&ndash;                        <button class="btn ripple btn-primary" type="button">Загрузить</button>&ndash;&gt;-->
+<!--                        <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Закрыть</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <!-- End Modal -->
+
+
+
 
                     </div>
                     <!-- CONTAINER CLOSED -->
@@ -1016,6 +1166,7 @@
 
     <!-- CUSTOM JS -->
     <script src="../static/assets/js/custom.js"></script>
+    <script src="../static/assets/js/view-analysis-values.js"></script>
 
 
 </body>
