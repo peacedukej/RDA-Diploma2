@@ -13,8 +13,8 @@ $(document).ready(function() {
                 success: function(data) {
                 var analysisTypes = data.analysis_types.join('</option><option>');
                     $('#availableOptions').html(`
-                        <select class="form-control select2 form-select" id="availableOptions" placeholder='Выберите доступный тип анализа'>
-
+                        <select class="form-control select2 form-select" id="availableOptions">
+                            <option value="pass" selected>Выберите доступный тип анализа</option>
                             <option>${analysisTypes}</option>
                         </select>
                                         `);  // Обновляем содержимое контейнера

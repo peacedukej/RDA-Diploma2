@@ -169,11 +169,12 @@ def get_analysis_for_stat(request):
 def get_analysis_id(request):
     if request.method == 'GET':
         analysis_type = request.GET.get("option")
+        user_id = request.GET.get("user_id")
         try:
             # Получаем параметр option из Ajax-запроса
 
             # Ищем все analysis_id, которые относятся к данному analysis_type
-            analysis_ids = Analysis.objects.filter(analysis_type=analysis_type).values_list('analysis_id', flat=True)
+            analysis_ids = Analysis.objects.filter(analysis_type=analysis_type, user_id=user_id).values_list('analysis_id', flat=True)
             # Конвертируем QuerySet в список и отдаем их в JSON-формате
             analysis_list = list(analysis_ids)
             data = {
@@ -186,21 +187,27 @@ def get_analysis_id(request):
         return JsonResponse({'error': 'Некорректный метод запроса'})  # Обработка случая, если запрос не GET
 
 
-def create_stat(request):
-    if request.method == 'GET':
-        user_id = request.GET.get('user_id')
-        try:
-            # Выполнение запроса в базу данных для получения объекта Analysis по analysis_id
-            analysis = Analysis.objects.filter(user_id=user_id).values_list('analysis_type', flat=True).distinct()
-            analysis_types = list(analysis)
-            data = {
-                'analysis_types': analysis_types
-            }
-            return JsonResponse(data)  # Возвращение данных в JSON-формате
-        except Analysis.DoesNotExist:
-            return JsonResponse({'error': 'Анализ с указанным ID не найден'})  # Обработка случая, если анализ не найден
-    else:
-        return JsonResponse({'error': 'Некорректный метод запроса'})  # Обработка случая, если запрос не GET
+def get_values_for_stat(request):
+    if request.method == "GET":
+        analysis_ids = request.GET.get("numbers")
+        analysis_ids_list = analysis_ids.split() # Разбиваем строку на список числовых значений
+        analysis_fields = AnalysisFields.objects.filter(analysis_id__in=analysis_ids_list)
+        data = {}
+        for analysis_field in analysis_fields:
+            analysis_id = analysis_field.analysis_id
+
+            for i in range(1, 31):
+                field_name = "value_" + str(i)
+
+                if analysis_id not in data:
+                    data[analysis_id] = {}
+                if field_name not in data[analysis_id]:
+                    data[analysis_id][field_name] = []
+                data[analysis_id][field_name].append(getattr(analysis_field, field_name))
+
+                # print(data)
+        print(data)
+        return JsonResponse({"values": data})
 
 
 

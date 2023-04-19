@@ -40,6 +40,7 @@
         <script src="../static/assets/plugins/input-mask/jquery.mask.min.js"></script>
     <script src="../static/assets/js/getUserId.js"></script>
     <script src="../static/assets/js/getAnalysisId.js"></script>
+    <script src="../static/assets/js/getValuesForStat.js"></script>
 
 
 </head>
@@ -717,7 +718,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-lg-1">
-                                                <h5 class="h5 mb-2"><b>Тип анализа: </b></h5>
+                                                <h5 class="form-label h5"><b>Тип анализа: </b></h5>
                                             </div>
                                             <div class="col-lg-3" id="availableOptions">
 
@@ -727,7 +728,7 @@
                                         <div class="row">
                                             <div class="col-lg-1">
 
-                                                <input type="submit"  class="btn btn-primary float-end" value="Сформировать статистику">
+                                                <input type="submit" id="get-statistics" class="btn btn-primary float-end" value="Сформировать статистику">
 
                                             </div>
                                         </div>
@@ -736,12 +737,17 @@
 
                                     <div class="card-body">
                                         <div class="row">
-                                            Здесь будет отображена статистика
-                                        </div>
-                                        <div class="row" id="results">
-dsds
+                                            <div class="col-lg-2">
+                                                <h5 class="form-label h5"><b>Статистика по анализам: </b></h5>
+                                            </div>
+                                            <div class="col-lg-10" id="results">
+
                                         </div>
                                     </div>
+                                        <div class="row" id="analysis_values">
+
+
+                                        </div>
 
 
                                 </div>
