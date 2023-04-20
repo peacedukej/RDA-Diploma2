@@ -18,7 +18,7 @@ $(document).ready(function() {
         var analysis_ids = Object.keys(values);
 
         // Формируем таблицу
-        var table = '<table class="table table-bordered text-nowrap border-bottom dataTable no-footer" id="basic-datatable" role="grid" aria-describedby="basic-datatable_info">';
+        var table = '<div class="table-responsive" id="analysis-data-values"> <div class="dataTables_wrapper dt-bootstrap5 no-footer " id="basic-datatable_wrapper"> <table class="table table-bordered text-nowrap border-bottom dataTable no-footer" id="basic-datatable" role="grid" aria-describedby="basic-datatable_info">';
         // Формируем заголовок таблицы
         table += '<thead><tr><th>Analysis ID</th>';
         // Формируем заголовки столбцов
@@ -48,11 +48,14 @@ $(document).ready(function() {
           }
           table += '</tr>';
         }
-        table += '</tbody></table>';
+        table += '</tbody></table></div></div>';
 
         // Вставляем таблицу в элемент с id "analysis_values"
         $("#analysis_values").html(table);
+
       },
     });
   });
+
 });
+
