@@ -206,9 +206,32 @@ def get_values_for_stat(request):
                 data[analysis_id][field_name].append(getattr(analysis_field, field_name))
 
                 # print(data)
-        print(data)
+        # print(data)
         return JsonResponse({"values": data})
 
+
+def chart_data(request):
+    # Получаем значения analysis_id из HTML-элемента
+    ids_str = request.GET.get('ids_str')
+    print('ids_str: ' + str(ids_str))
+    ids_list = [int(x) for x in ids_str.split(',')]
+    print(ids_list)
+    # Получаем тип выбранного столбца из выпадающего списка
+    column_select = request.GET.get('column_select')
+    print(column_select)
+    print('column_select: ' + str(column_select))
+
+    # Извлекаем значения выбранного столбца для указанных analysis_id
+    result_set = AnalysisFields.objects.filter(
+        analysis_id__in=ids_list).values_list(
+        'analysis_id', column_select)
+
+    # Возвращаем результаты в JSON-формате
+    data = []
+    for row in result_set:
+        data.append({'analysis_id': row[0], 'value': row[1] or 0})
+    print(data)
+    return JsonResponse(data, safe=False)
 
 
 @login_required(login_url='../login', )

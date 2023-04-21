@@ -20,7 +20,7 @@ $(document).ready(function() {
                         var analysisIDs = data.analysis_list.join(" ");
                             $('#results').html(`
 
-                             <h5 class="form-label h5"><b>${analysisIDs}</b></h5>
+                             <h5 class="form-label h5">${analysisIDs}</h5>
 
 
                            `);

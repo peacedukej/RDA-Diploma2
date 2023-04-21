@@ -5,6 +5,20 @@ function createSelectContainer() {
   let rowDiv = document.createElement("div");
   rowDiv.className = "row";
 
+  let rowButton = document.createElement("div");
+  rowButton.className = "row";
+
+  let colButton = document.createElement("div")
+  colButton.className = "col-lg-1";
+
+  let button = document.createElement("input");
+  button.className = "btn btn-primary float-end";
+  button.id = "createView";
+  button.value = "Отобразить график";
+  button.type = "submit";
+
+  let br1 = document.createElement("br");
+
   let titleDiv = document.createElement("div");
   titleDiv.className = "col-lg-1";
 
@@ -26,7 +40,7 @@ function createSelectContainer() {
 
   let selectList = document.createElement("select");
   selectList.className = "form-control form-select"
-  selectList.class;
+  selectList.id = "column-select"
   for (let i = 0; i < headers.length; i++) {
     let option = document.createElement("option");
     option.text = headers[i];
@@ -39,7 +53,13 @@ function createSelectContainer() {
   rowDiv.appendChild(titleDiv);
   rowDiv.appendChild(selectDiv);
 
+  colButton.appendChild(button);
+  rowButton.appendChild(colButton);
+
   container.appendChild(rowDiv);
+  container.appendChild(br1);
+  container.appendChild(br1);
+  container.appendChild(rowButton);
 
   let prevSibling = document.querySelector("#show_select_values ~ div.card > div.card-body");
   if (prevSibling) {

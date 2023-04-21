@@ -37,5 +37,5 @@ urlpatterns = [
     path('get_user_id/', views.get_user_id, name='get_user_id'),
     path('get_values_for_stat/', views.get_values_for_stat, name='get_values_for_stat'),
     path('get_analysis_id/', views.get_analysis_id, name='get_analysis_id'),
-    # path('add analysis/', views.add_analysis_values),
+    path('chart_data/', views.chart_data, name='chart_data')
 ]

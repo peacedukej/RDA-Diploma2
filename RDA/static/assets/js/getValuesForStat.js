@@ -2,8 +2,8 @@ $(document).ready(function() {
   $("#get-statistics").click(function() {
     var results = document.getElementById("results"); // Получаем элемент с id "results"
     var h5Element = results.getElementsByTagName("h5")[0]; // Получаем h5-элемент
-    var bElement = h5Element.getElementsByTagName("b")[0]; // Получаем b-элемент, который содержит числовые значения
-    var numbers = bElement.innerText; // Получаем числовые значения из b-элемента
+//    var bElement = h5Element.getElementsByTagName("b")[0]; // Получаем b-элемент, который содержит числовые значения
+    var numbers = h5Element.innerText; // Получаем числовые значения из b-элемента
     var data = {
       "numbers": numbers
     }

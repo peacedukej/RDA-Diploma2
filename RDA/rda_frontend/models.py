@@ -225,3 +225,4 @@ def update_profile_signal(sender, instance, created, **kwargs):
         # email = User.objects.get('email')
         # p = Patient(email=email)
         # # p.save()
+
