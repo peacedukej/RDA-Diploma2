@@ -10,7 +10,7 @@ function drawChart() {
     $.ajax({
       url: "/chart_data/",
       type: 'GET',
-      data: {'ids_str': ids_list.join(), 'column_select': column_name},
+      data: {'ids_str': ids_list.join(), 'column_select': column_select},
       dataType: 'json',
       success: function (data) {
         var chartData = new google.visualization.DataTable();

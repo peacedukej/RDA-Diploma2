@@ -13,7 +13,7 @@ $(document).ready(function() {
                 success: function(data) {
                 var analysisTypes = data.analysis_types.join('</option><option>');
                     $('#availableOptions').html(`
-                        <select class="form-control select2 form-select" id="availableOptions">
+                        <select class="form-control select2 form-select" id="available-types">
                             <option value="pass" selected>Выберите доступный тип анализа</option>
                             <option>${analysisTypes}</option>
                         </select>

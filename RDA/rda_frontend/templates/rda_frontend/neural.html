@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../static/assets/images/brand/favicon.ico" />
 
     <!-- TITLE -->
-    <title>Документы</title>
+    <title>Личный кабинет</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="../static/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -312,6 +312,7 @@
                             <li class="slide">
                                 <a class="side-menu__item has-link" data-bs-toggle="slide" href="../account"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Мой профиль</span></a>
                             </li>
+
                             <li class="slide">
                                 <a class="side-menu__item has-link" data-bs-toggle="slide" href="../edit profile"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Редактировать профиль</span></a>
                             </li>
@@ -329,7 +330,6 @@
                             <li class="slide">
                                 <a class="side-menu__item has-link" data-bs-toggle="slide" href="../analysis"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Анализы и обследования</span></a>
                             </li>
-
 
                             <li class="sub-category">
                                 <h3>Активность заболевания</h3>
@@ -350,453 +350,66 @@
             </div>
 
             <!--app-content open-->
+
+
             <div class="main-content app-content mt-0">
                 <div class="side-app">
 
                     <!-- CONTAINER -->
                     <div class="main-container container-fluid">
 
+                        {% if user.patient.data_group == 'New' %}
+
+                        {% else %}
+
+                        {% endif %}
+
+
+
+
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Обзор файлов</h1>
+                            <h1 class="page-title">Отследить активность</h1>
+                            <div>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Страницы</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Профиль</li>
+                                </ol>
+                            </div>
                         </div>
                         <!-- PAGE-HEADER END -->
 
-                        <!-- Row -->
-                        <div class="row row-sm">
-                            <div class="col-md-5 col-lg-5 col-xl-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <button class="btn btn-primary btn-block" data-bs-target="#createfile" data-bs-toggle="modal"><i class="fe fe-plus me-1"></i> Добавить новый файл</button>
-                                    </div>
-                                    <div class="card-body pt-4">
-                                        <div class="list-group list-group-transparent mb-0 file-manager">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="list-group-item  d-flex align-items-center px-0">
-                                                        <i class="fe fe-image fs-18 me-2 text-success p-2"></i>Изображения
-                                                    </a>
-                                                </div>
-                                                <div class="text-end ms-auto mt-3">
-                                                    <span class="fs-11  text-dark">20 MB</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress progress-xs mb-3 ms-2">
-                                                <div class="progress-bar bg-green" style="width: 30%;"></div>
-                                            </div>
 
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="list-group-item  d-flex align-items-center px-0">
-                                                        <i class="fe fe-file-text fs-18 me-2 text-primary p-2"></i> Документы
-                                                    </a>
-                                                </div>
-                                                <div class="text-end ms-auto mt-3">
-                                                    <span class="fs-11  text-dark">14.2 MB</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress progress-xs mb-3 ms-2">
-                                                <div class="progress-bar bg-primary" style="width: 25%;"></div>
-                                            </div>
 
-                                            <div class="d-flex">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="list-group-item  d-flex align-items-center px-0">
-                                                        <i class="fe fe-grid fs-18 me-2 text-danger p-2"></i> Другое
-                                                    </a>
-                                                </div>
-                                                <div class="text-end ms-auto mt-3">
-                                                    <span class="fs-11  text-dark">23 MB</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress progress-xs mb-3 ms-2">
-                                                <div class="progress-bar bg-danger" style="width: 45%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
+                        <!-- ROW-1 OPEN -->
+                        <div class="row" id="user-profile">
+                            <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="d-flex">
-                                            <a href="javascript:void(0)" class="file-manager-image"><img src="../static/assets/images/media/folder1.png" alt="img"></a>
-                                            <h3 class="ms-3 mt-5 fw-semibold">467 Файлов</h3>
-                                            <div class="ms-5 ms-auto">
-                                                <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fe fe-more-vertical fs-18"></i>
-                                                </a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="javascript:void(0)">Internal Storage</a></li>
-                                                    <li><a href="javascript:void(0)">External Storage</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-xs mb-3">
-                                            <div class="progress-bar bg-warning" style="width: 60%;"></div>
-                                        </div>
-                                        <div class="">
-                                            <div class="d-flex">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h6 class="mt-2"><i class="fe fe-circle text-success fs-12"></i> Total Storage</h6>
-                                                        <span class="text-muted">128 GB</span>
-                                                    </div>
-                                                </div>
-                                                <div class="ms-auto my-auto">
-                                                    <h6 class="mt-2"><i class="fe fe-circle text-danger fs-12"></i> Used</h6>
-                                                    <span class="text-muted">100 GB</span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7 col-lg-7 col-xl-9">
-                                <div class="row row-sm">
-                                    <div class="text-dark mb-2 ms-1 fs-20 fw-semibold">Папки</div>
 
-                                    <div class="col-xl-3 col-md-6 col-sm-6">
-                                        <div class="card pos-relative">
-                                            <a href="filemanager-list.html" class="open-file"></a>
-                                            <div class="card-body px-4 pt-4 pb-2">
-                                                <div class="d-flex">
-                                                    <span class="bg-warning-transparent border border-warning brround">
-                                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                                            <path fill="#f7b731" d="M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19A2,2 0 0,1 21,8H21L4,8V18L6.14,10H23.21L20.93,18.5C20.7,19.37 19.92,20 19,20Z" />
-                                                        </svg>
-                                                    </span>
-                                                    <div class="ms-auto mt-1 file-dropdown">
-                                                        <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Изменить</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Поделиться</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Скачать</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Удалить</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-0">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="text-warning">PDF</h5>
-                                                        <p class="text-muted fs-13 mb-0">25 Файлов</p>
-                                                    </div>
-                                                    <div class="ms-auto mt-4">
-                                                        <h6 class="">15 MB</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-6">
-                                        <div class="card pos-relative">
-                                            <a href="filemanager-list.html" class="open-file"></a>
-                                            <div class="card-body px-4 pt-4 pb-2">
-                                                <div class="d-flex">
-                                                    <span class="bg-secondary-transparent border border-secondary brround">
-                                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                                            <path fill="#05c3fb" d="M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6M15,16H6V14H15V16M18,12H6V10H18V12Z" />
-                                                        </svg>
-                                                    </span>
-                                                    <div class="ms-auto mt-1 file-dropdown">
-                                                        <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Изменить</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Поделиться</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Скачать</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Удалить</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-0">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="text-secondary">DOC</h5>
-                                                        <p class="text-muted fs-13 mb-0">25 Файлов</p>
-                                                    </div>
-                                                    <div class="ms-auto mt-4">
-                                                        <h6 class="">15 MB</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-md-6 col-sm-6">
-                                        <div class="card pos-relative">
-                                            <a href="filemanager-list.html" class="open-file"></a>
-                                            <div class="card-body px-4 pt-4 pb-2">
-                                                <div class="d-flex">
-                                                    <span class="bg-danger-transparent border border-orange brround">
-                                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                                            <path fill="#fc7303" d="M5,17L9.5,11L13,15.5L15.5,12.5L19,17M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6Z" />
-                                                        </svg>
-                                                    </span>
-                                                    <div class="ms-auto mt-1 file-dropdown">
-                                                        <a href="javascript:void(0)" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical fs-18"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-start">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-edit me-2"></i> Изменить</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-share me-2"></i> Поделиться</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-download me-2"></i> Скачать</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i class="fe fe-trash me-2"></i> Удалить</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer border-top-0">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="text-orange">Изображения</h5>
-                                                        <p class="text-muted fs-13 mb-0">21 файл</p>
-                                                    </div>
-                                                    <div class="ms-auto mt-4">
-                                                        <h6 class="">19 MB</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
 
-                                </div>
-                                <div class="text-dark mb-2 ms-1 fs-20 fw-semibold">Файлы</div>
-                                <div class="row row-sm">
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/pdf.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">file.pdf</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">32 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/07.jpg" alt="img" class="w-100 file-manager-list" ></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">image1.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">76 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/excel.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">excel.xls</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">34 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/06.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">nature.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">66 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/ppt1.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">demo.ppt</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">67 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/file-video.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">video.mp4</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto mt-3">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/word.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">word.doc</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/01.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">mountain.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/pdf.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">file.pdf</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">32 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/excel.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">excel.xls</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">34 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/02.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="d-flex">
-                                                        <h5 class="mb-0 fw-semibold text-break">image1.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">76 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/ppt1.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">profile.ppt</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">67 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/04.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">image2.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">66 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html"><img src="../static/assets/images/media/files/05.jpg" alt="img" class="w-100 file-manager-list"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">nature.jpg</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">66 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
-                                        <div class="card overflow-hidden">
-                                            <a href="filemanager-details.html" class="mx-auto my-3"><img src="../static/assets/images/media/files/zip1.png" alt="img"></a>
-                                            <div class="card-footer">
-                                                <div class="d-flex">
-                                                    <div class="">
-                                                        <h5 class="mb-0 fw-semibold text-break">exe.zip</h5>
-                                                    </div>
-                                                    <div class="ms-auto my-auto">
-                                                        <span class="text-muted mb-0">320 KB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                            <!-- End Row -->
+
                         </div>
-                        <!-- End Row -->
                     </div>
+
+                            <!-- COL-END -->
+                        <!-- ROW-1 CLOSED -->
                     <!-- CONTAINER CLOSED -->
 
                 </div>
             </div>
+
             <!--app-content closed-->
         </div>
 
@@ -1300,28 +913,6 @@
         </div>
         <!-- Country-selector modal-->
 
-        <!-- Modal -->
-        <div class="modal" id="createfile">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content modal-content-demo">
-                    <div class="modal-header">
-                        <h6 class="modal-title">Нажмите, чтобы выбрать файл, или перетащите его в окошко</h6>
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            <input id="demo" type="file" name="files" accept="image/jpeg, image/png, text/html, application/zip, text/css, text/js" multiple>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn ripple btn-primary" type="button">Загрузить</button>
-                        <button class="btn ripple btn-danger" data-bs-dismiss="modal" type="button">Отмена</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal -->
-
         <!-- FOOTER -->
         <footer class="footer">
             <div class="container">
@@ -1345,8 +936,8 @@
     <script src="../static/assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- SIDEBAR JS -->
-    <script src="../static/assets/plugins/sidebar/sidebar.js"></script>
+    <!-- INPUT MASK JS-->
+    <script src="../static/assets/plugins/input-mask/jquery.mask.min.js"></script>
 
     <!-- SIDE-MENU JS -->
     <script src="../static/assets/plugins/sidemenu/sidemenu.js"></script>
@@ -1355,12 +946,8 @@
 	<script src="../static/assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
     <script src="../static/assets/js/typehead.js"></script>
 
-    <!-- INTERNAL File-Uploads Js-->
-    <script src="../static/assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/jquery.fileupload.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
-    <script src="../static/assets/plugins/fancyuploder/fancy-uploader.js"></script>
+    <!-- SIDEBAR JS -->
+    <script src="../static/assets/plugins/sidebar/sidebar.js"></script>
 
     <!-- Perfect SCROLLBAR JS-->
     <script src="../static/assets/plugins/p-scroll/perfect-scrollbar.js"></script>
@@ -1373,7 +960,7 @@
     <!-- Sticky js -->
     <script src="../static/assets/js/sticky.js"></script>
 
-    <!-- CUSTOM JS-->
+    <!-- CUSTOM JS -->
     <script src="../static/assets/js/custom.js"></script>
 
 

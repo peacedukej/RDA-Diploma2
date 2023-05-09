@@ -20,6 +20,7 @@ class Patient(models.Model):
     gender = models.CharField(null=True, max_length=10)
     address = models.CharField(max_length=50, null=True)
     access_group = models.CharField(max_length=30, null=True, default='New')
+    data_group = models.CharField(max_length=30, null=True, default='New')
     photo = models.URLField(null=True)
     # password = models.CharField(max_length=30, null=True)
     # class Meta:

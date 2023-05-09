@@ -4,12 +4,13 @@ $(document).ready(function() {
     var h5Element = results.getElementsByTagName("h5")[0]; // Получаем h5-элемент
 //    var bElement = h5Element.getElementsByTagName("b")[0]; // Получаем b-элемент, который содержит числовые значения
     var numbers = h5Element.innerText; // Получаем числовые значения из b-элемента
+    console.log(numbers)
     var data = {
       "numbers": numbers
     }
     $.ajax({
       type: "GET",
-      url: "get_values_for_stat/",
+      url: "/get_values_for_stat/",
       data: data,
       success: function(response) {
         // Получаем список значений по analysis_id

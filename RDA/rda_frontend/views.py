@@ -189,6 +189,7 @@ def get_analysis_id(request):
 
 def get_values_for_stat(request):
     if request.method == "GET":
+        print('dsfjbgsdbhnjsdgbsdgfb')
         analysis_ids = request.GET.get("numbers")
         analysis_ids_list = analysis_ids.split() # Разбиваем строку на список числовых значений
         analysis_fields = AnalysisFields.objects.filter(analysis_id__in=analysis_ids_list)
@@ -206,7 +207,7 @@ def get_values_for_stat(request):
                 data[analysis_id][field_name].append(getattr(analysis_field, field_name))
 
                 # print(data)
-        # print(data)
+        #print('=================================' + data)
         return JsonResponse({"values": data})
 
 
@@ -293,7 +294,10 @@ def analysis_details(request, analysis_id):
     return render(request, 'rda_frontend/analysis.html', context)
 
 
-
+@login_required(login_url='../login', )
+@user_passes_test(check_access_group, login_url='../account')
+def neural_page(request):
+    return render(request, 'rda_frontend/neural.html')
 
 
 
