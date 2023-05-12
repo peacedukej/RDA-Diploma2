@@ -297,7 +297,12 @@ def analysis_details(request, analysis_id):
 @login_required(login_url='../login', )
 @user_passes_test(check_access_group, login_url='../account')
 def neural_page(request):
-    return render(request, 'rda_frontend/neural.html')
+    empty_page = {
+        'page-name': 'Check activity',
+        'status':'In process',
+    }
+    return JsonResponse(empty_page)
+    #return render(request, 'rda_frontend/neural.html')
 
 
 
