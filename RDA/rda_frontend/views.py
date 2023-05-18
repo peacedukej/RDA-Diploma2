@@ -8,8 +8,8 @@ from .forms import RegisterForm, LoginForm, NewUserProfile, EditPassword, NewAna
 from .models import Patient, Analysis, AnalysisFields
 
 from django.http import JsonResponse
-
-
+from . import serializers
+from rest_framework import generics
 # Create your views here.
 
 
@@ -300,9 +300,22 @@ def neural_page(request):
     return render(request, 'rda_frontend/neural.html')
 
 
+class AnalysisDetail(generics.ListCreateAPIView):
+    queryset = Analysis.objects.all()
+    serializer_class = serializers.AnalysisSerializer
+
+class AnalysisUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Analysis.objects.all()
+    serializer_class = serializers.AnalysisSerializer
 
 
+class PatientDetail(generics.ListCreateAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = serializers.PatientSerializer
 
+class PatientUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Patient.objects.all()
+    serializer_class = serializers.PatientSerializer
 
 # def add_analysis_values(request):
 #     value_form = NewAnalysisFields

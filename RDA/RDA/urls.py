@@ -38,5 +38,10 @@ urlpatterns = [
     path('get_user_id/', views.get_user_id, name='get_user_id'),
     path('get_values_for_stat/', views.get_values_for_stat, name='get_values_for_stat'),
     path('get_analysis_id/', views.get_analysis_id, name='get_analysis_id'),
-    path('chart_data/', views.chart_data, name='chart_data')
+    path('chart_data/', views.chart_data, name='chart_data'),
+
+    path('ganalysis/', views.AnalysisDetail.as_view(), name='ganalysisDetail'),
+    path('ganalysis/<int:pk>/', views.AnalysisUpdate.as_view(), name='ganalysisUpdate'),
+    path('gpatient/', views.PatientDetail.as_view(), name='gpatientDetail'),
+    path('gpatient/<int:pk>/', views.PatientUpdate.as_view(), name='gpatientUpdate'),
 ]

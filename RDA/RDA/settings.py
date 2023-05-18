@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rda_frontend',
     'googlecharts',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'RDA.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'rda_db',
+        'USER': 'postgres',
+        'PASSWORD': '123103Pp',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

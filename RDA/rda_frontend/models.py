@@ -156,11 +156,11 @@ class Analysis(models.Model):
     analysis_id = models.AutoField(primary_key=True) # при нажатии кнопки создавать новый анализ айди /// пока что тут автоинкремент поля
     # analysis_id = models.IntegerField(primary_key=True)
     analysis_type = models.CharField(max_length=50, null=True)
-    date_of_upload_analysis = models.DateTimeField(null=True)
-    place_of_analysis = models.CharField(max_length=50, null=True)
+    #date_of_upload_analysis = models.DateTimeField(null=True)
+    #place_of_analysis = models.CharField(max_length=50, null=True)
     analysis_user_name = models.CharField(max_length=50, null=True)
-    date_of_analysis = models.DateTimeField(null=True)
-    analysis_status = models.CharField(default='Created', max_length=20)
+    #date_of_analysis = models.DateTimeField(null=True)
+    #analysis_status = models.CharField(default='Created', max_length=20)
 
 
 class AnalysisFields(models.Model):
