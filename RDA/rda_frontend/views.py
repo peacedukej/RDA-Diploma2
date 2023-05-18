@@ -301,8 +301,8 @@ def neural_page(request):
         'page-name': 'Check activity',
         'status':'In process',
     }
-    return JsonResponse(empty_page)
-    #return render(request, 'rda_frontend/neural.html')
+    #return JsonResponse(empty_page)
+    return render(request, 'rda_frontend/neural.html')
 
 
 
