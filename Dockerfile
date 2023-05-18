@@ -1,10 +1,6 @@
-FROM python
+FROM python:3.11
 
-SHELL ["/bin/bash", "-c"]
+ADD ./RDA /app
+WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-RUN pip install --upgrade pip
-
-RUN apt update && apt -qy install gcc libjpeg-dev
+RUN pip install --upgrade pip && pip install -r requirements.txt

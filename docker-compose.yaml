@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+    rda:
+        build: .
+        command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+        ports:
+            - "8000:8000"
+        networks:
+            - db
+        depends_on:
+            db:
+                condition: service_healthy
+        healthcheck:
+            test: ["CMD", "curl", "--fail", "http://localhost:8000/"]
+            interval: 3s
+            timeout: 5s
+        restart: unless-stopped
+    db:
+        image: postgres:14.7
+        environment:
+            POSTGRES_DB: rda_db
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: 123103Pp
+            PGDATA: /var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD-SHELL", "echo 'SELECT 1;' | psql -U postgres -d rda_db"]
+            interval: 3s
+            timeout: 5s
+        restart: unless-stopped
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data
+        networks:
+            - db
+    nginx:
+        image: nginx:1.21.3
+        ports:
+          - "8080:8080"
+        volumes:
+          - ./nginx.conf:/etc/nginx/nginx.conf
+        networks:
+          - db
+        depends_on:
+            rda:
+                condition: service_healthy
+
+networks:
+    db:
+        driver: bridge
